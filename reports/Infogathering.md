@@ -54,7 +54,7 @@
     - TODO
 
 - Notable Trends/Sentiments:
-    - Using social searcher we determine that OpenAI has a generally positive sentiment on social media. This could be due to their recent Sora text to video model that has shocked the field once again. There has been a significant uptick in the number of posts in the past few days. This follows a general trend of initally positive reactions to openAI's releases 
+    - Using social searcher we determine that OpenAI has a generally positive sentiment on social media. This could be due to their recent Sora text to video model that has shocked the field once again. There has been a significant uptick in the number of posts in the past few days. This follows a general trend of initally positive reactions to openAI's releases with a reactionary turn towards the product in the weeks after. Each new release truely disrupts the field and is a major reason why they are able to keep up with the pace of the field.
     
 ## Recent News and Developments:
 
@@ -84,9 +84,19 @@ Provide a concise overview of the project, outlining key objectives, methodologi
 
 Briefly introduce the purpose and context of the information gathering project. Introduce the company and its leadership here as well.
 
+  OpenAI's metoric rise with the popularity of ChatGPT and its other models could make it a taget for cyber criminals. This project will attempt to gather information about the company and its employees to identify possible attack vectors. Due to the powerful nature of the tools and services they provide coupled with the previlance of their use it's important to examine their security posture.
+  The CEO Sam Altman was recently ousted from the company and reinstated 5 day later, this could be seen as instablity within the company increasing its risk of being hacked. There are also growing concerns around AI safety and the potential harm these systems can inflict. Notably in a recent press release OpenAI stated that they had recently [disrupted five state affiliated malicious actor](https://openai.com/blog/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors) from using there services to conduct cyber attacks.
+
 ### 1.2 Scope and Objectives:
 
-Clearly define the scope and specific objectives of the information gathering initiative.
+This report aims to identify the following:
+  - The company's sentiment on social media
+  - The key employees of the company
+  - The technologies in use by the company
+  - The company's security posture
+  - The company's partnerships and acquisitions
+  - The company's recent news and press releases
+With the objective of identifying possible attack vectors and potential threats to the company.
 
 ## 2. Methodology:
 
@@ -94,9 +104,29 @@ Clearly define the scope and specific objectives of the information gathering in
 
 List and describe the sources used for information gathering, including tools and platforms such as WHOIS, social media, Maltego, Shodan, and Pastebin.com.
 
+- WHOIS: for basic DNS and hosting information
+- Maltego:
+- Social Searcher: Sentiment analysis
+- Shodan:
+- recon-ng:
+
 ### 2.2 Techniques Employed:  
 
 Detail the passive information gathering techniques applied, specifying how each tool or source was utilized.
+- Website Reconnaissance
+  - Gathered basic information about OpenAI and the services they provide.
+  - Gathered information about the company's employees.
+  - Identified company email format.
+- WhoIS Enumeration
+  - Identified Domain Name Server
+  - Identified hosting provider
+  - Identified registrar
+  - Identified administrator
+- Google Hacking
+- recon-ng
+- Shodan
+- Security Header Scan
+- Email Harvesting
 
 ### 2.3 Ethical Considerations:
 

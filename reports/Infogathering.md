@@ -130,17 +130,44 @@ Detail the passive information gathering techniques applied, specifying how each
 
 ### 2.3 Ethical Considerations:
 
-Highlight the ethical guidelines adhered to during the information gathering process, emphasizing privacy and legal compliance.
+This report followed the ethical framework outlined in [Ethical Frameworks in OSINT](https://www.dhs.gov/sites/default/files/2022-09/Ethical%20Frameworks%20in%20OSINT%20Final.pdf) "it is generally accepted that information gained from OSINT must be obtained in a way that does not violate existing privacy laws, must not be used in a malicious manner, and must be done only as a necessary means to an end."
+All information in this report is for educational purposes only and is not intended to be used for any illegal or malicious purpose.
 
-## 3. Findings [Sample tool selection, not a complete list]:
+## 3. Findings:
 
 ### 3.1 WHOIS Analysis:
 
-Summarize key insights obtained from WHOIS data, including domain registration details, ownership information, and relevant dates.
+- Registration:
+  - domain name: openai.com
+  - Updated Date: 2023-11-30
+  - Creation Date: 2007-01-19
+  - Expiration Date: 2027-01-19
+  - Registrant/Admin/Tech Name: REDACTED FOR PRIVACY
+  - Registrar: GANDI SAS  
+  - Registrar IANA ID: 81
+  - Registrar Abuse Contact Email: abuse@support.gandi.net
+  - Registrar Abuse Contact Phone: +33.170377661
+  - Reseller: Amazon Registrar, Inc.
+  - Admin/Registrant/Tech Street: 63-65 boulevard Massena
+  - Admin/Registrant/Tech City: Paris
+  - Admin/Registrant/Tech Postal Code: 75013
+  - Admin/Registrant/Tech Country: FR
+  - Admin/Registrant/Tech Phone: +33.170377666
+  - Admin/Registrant/Tech Fax: +33.143730576
+  - Admin/Registrant/Tech Email: c41c039c74914fac03a09f3660363355-4164038@contact.gandi.net
+- Name Servers:
+  - NS1-02.AZURE-DNS.COM
+  - NS2-02.AZURE-DNS.NET
+  - NS3-02.AZURE-DNS.ORG
+  - NS4-02.AZURE-DNS.INFO
 
 ### 3.2 Social Media Insights:  
 
 Present notable findings from social media platforms, focusing on public sentiment, customer interactions, and trends related to the target company.
+- OpenAI's new text-to-video model Sora was just released and while the sentiment has been mostly positive on social media it's still a bit controversial due to its ablity to spread misinformation and deep fakes. 
+
+![ 
+
 
 ### 3.3 Maltego Relationship Mapping:
 

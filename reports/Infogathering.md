@@ -166,16 +166,86 @@ All information in this report is for educational purposes only and is not inten
 Present notable findings from social media platforms, focusing on public sentiment, customer interactions, and trends related to the target company.
 - OpenAI's new text-to-video model Sora was just released and while the sentiment has been mostly positive on social media it's still a bit controversial due to its ablity to spread misinformation and deep fakes. 
 
-![ 
+- There are significant spikes in followers at the release of ChatGPT and their new Sora model.
 
+[Social Searcher](https://www.social-searcher.com/social-buzz/?q5=openAI):
+![pie chart of sentiment](../imgs/Sentiment-pie-graph-social-searcher.png)
+
+[Social Blade](https://socialblade.com/search/search?query=openai):
+![Twitter follower graphs](../imgs/Twiter-graphs-social-blade.png)
+![Twitter grade overview](../imgs/Grade-overview-social-blade.png)
+![Youtube follower graphs](../imgs/Youtube-social-blade-graph.png)
+![Youtube grade overview](../imgs/Youtube-social-blade-grade.png)
 
 ### 3.3 Maltego Relationship Mapping:
 
 Visualize and discuss relationships between entities associated with the target company, using Maltego for entity relationship mapping. 
+Website entities map:
+![Maltego graph of website entities](../imgs/maltego-graph-export.png)
 
 ### 3.4 Shodan Infrastructure Analysis:
 
 Highlight information obtained from Shodan related to the target company's internet-facing infrastructure, emphasizing security-related insights.
+
+No known vulnerabilities found using Shodan. Ports seem to be configured properly with no open ssh, telnet, or FTP ports.
+
+Products:
+- nginx
+- Apache httpd
+- OpenResty
+- Microsoft IIS httpd
+
+Website Titles:
+- ChatGPT
+- 404 Page Not Found
+- Just a moment...
+- 301 Moved Permanently  
+- Admin Dashboard
+- Camperverzekerd: Beste Camperverzekering 2024
+- Document Moved
+- OpenAI Platform
+- OpenMeetings
+- PPS
+- Reading on Your Head  
+- Vormats | Async video communication
+- fernao magellan GmbH – Ihre digitale Sicherheit, unsere Mission
+
+Web technologies:
+- HTTP/3 
+- HSTS 
+- Bootstrap 
+- jQuery 
+- Google Tag Manager  
+- jQuery CDN  
+- Algolia 
+- Azure Edge Network 
+- Cloudflare 
+- Google Analytics 
+- Google Sign-in 
+- PHP 
+- React  
+- TYPO3 CMS  
+- Unpkg 
+- YouTube 
+- cdnjs 
+- jQuery UI 
+- jsDelivr 
+- reCAPTCHA
+
+Ports :
+443, 80, 10000, 8080, 70, 3000, 5001, 8000, 8081, 8083, 8085, 8091, 8181, 8443, 8880, 8888, 9090, 9443, 9800
+
+Top 5 Organization:
+
+- Amazon Technologies Inc.
+- Microsoft Corporation
+- Asia Pacific Network Information Cent...
+- Amazon Data Services NoVa
+- Hetzner Online GmbH
+
+### 3.5 Security Header Analysis:
+
+Security headers are a set of metadata that can be used to detect and prevent certain types of attacks. Searching OpenAI's website revealed two missing headers one to prevent cross site scripting [Content Security Policy](https://scotthelme.co.uk/content-security-policy-an-introduction/) and [Permissions Policy](https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/).
 
 ## 4. Integration and Analysis:
 

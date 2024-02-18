@@ -1,0 +1,67 @@
+﻿# Information Gathering Report Template
+
+## Company Background:
+
+- History
+    - OpenAI was founded in 2015 with the goal to develop safe and beneficial artificial general intelligence. They began as a non-profit organization and were committed to sharing research and patents, then they expanded with a for-profit arm of the company in 2019. Initially they were able to hire some of the top researcher in the field and greatly impacted the speed of innovation in the field.
+    
+    - Key milestones or significant events:
+        - OpenAI released GPT-1 in 2017 which introduced the concept of generative pre-trained transformers which was a major milestone in the field as the previous models required a lot of human supervision to train and well annotated data. GPT uses a mixture of initial unsupervised phase followed by a supervised "fine tuning".
+        
+        - In 2019 they released GPT-2 which was a 10 fold improvement over GPT-1. Notably the team at OpenAI used transfer learning to train a team of Dota 2 bots that were able to defeat the top human players in the world.
+        
+        - Continuing the development GPT-3 was released in 2020 however it wasn't until they released GPT-3.5 in 2022 alongside their now notorious app ChatGPT that they were propelled into the spotlight with it quickly becoming the most widely used website in the world.
+        
+- Industry:
+    - They operate in the field of AI research and development with a focus on AI powered software as a service.
+    
+- Competitors:
+    - While all the major tech companies have their own AIs none have been as powerful or ubiquitous as OpenAI. Every model they release seems to be far more capable and has been proven to be more effective than any other. They have the advantage of setting the pace in the field and quickly develop new models so their competitors are constantly behind.
+    
+- Products/Services:
+    - They offer a few consumer facing apps like ChatGPT and Dall-e as well as integrations and customizable models through fine-tuning.
+    
+- Contribution to Strategy:
+    - These products and services are used to help people learn about AI and to help them understand the potential of AI. They also help companies build AI powered software as a service or integrate it into existing apps. This funds their enormous compute requirements with some estimates of $700,000 per day of server cost.
+
+## Leadership and Key Personnel:
+
+- Key Executives:
+    - Sam Altman, CEO
+    - Mira Murati, CTO  
+    - Greg Brockman, President & Co-Founder
+    - Brad Lightcap, COO
+    - Ilya Sutskever, Co-Founder and Chief Scientist  
+    - Bret Taylor, Chairman of the Board
+    - Bob McGrew, VP of Research
+    - Wojciech Zaremba, Co-Founder
+    - Miles Brundage, Head of Policy Research
+    - John Schulman, Co-Founder
+    - Jonathan Lachman, Head of Special Projects
+
+- Professional Background/Contributions:
+    - TODO
+
+## Social Media Presence: 
+
+- Engagement:
+    - TODO
+
+- Notable Trends/Sentiments:
+    - TODO
+    
+## Recent News and Developments:
+
+- Latest News/Press Releases:
+    - TODO
+
+- Partnerships/Mergers/Acquisitions:
+    - TODO
+    
+## Employee Culture and Reviews:
+
+- Company Culture:
+    - TODO
+
+- Employee Reviews:
+    - TODO

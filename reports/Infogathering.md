@@ -137,7 +137,7 @@ Information on important individuals:
 
 Website entities maps:
 ![Maltego graph of website entities](../imgs/maltego-graph-export.png)
-![DNSDumpster website graph](../imgs/openai-doman-map.pngl)
+![DNSDumpster website graph](../imgs/openai-doman-map.png)
 
 This mapping identifies the subdomains of OpenAI and their relationships to each other. Some interesting areas for further research  could be the admin panel, platform subdomain, and chat subdomain.
 

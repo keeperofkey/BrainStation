@@ -59,16 +59,16 @@ List and describe the sources used for information gathering, including tools an
 - Website Reconnaissance
   - Gathered basic information about OpenAI and the services they provide.
   - Gathered information about the company's employees.
-  - Identified company email format.
 - WhoIS Enumeration
   - Identified Domain Name Server
-  - Identified hosting provider
   - Identified registrar
   - Identified administrator
 - recon-ng
   - Interesting files scan
 - Shodan
   - Infrastructure analysis
+- Maltego
+  - Relationship mapping
 - Security Header Scan
   - Identified missing security headers
 - Email Harvesting
@@ -84,7 +84,7 @@ All information in this report is for educational purposes only and is not inten
 ### 3.1 WHOIS Analysis:
 
 - Registration:
-  - domain name: openai.com
+  - Domain name: openai.com
   - Updated Date: 2023-11-30
   - Creation Date: 2007-01-19
   - Expiration Date: 2027-01-19
@@ -107,7 +107,7 @@ All information in this report is for educational purposes only and is not inten
   - NS3-02.AZURE-DNS.ORG
   - NS4-02.AZURE-DNS.INFO
 
-### 3.2 Social Media Insights:  
+### 3.2 Social Media Insights:
 
 Information on important individuals:
   - Sam Altman was one of the original funders of OpenAI and has been a key contributor to the company's success. His experience at Y combinator and YC group allowed him to raise substantial capital from investors. He has also spoken to congress on the lack if AI oversight and has warned of the potential harm these systems can inflict.
@@ -220,6 +220,13 @@ Emails found:
 
 Hosts found:
 - blog.openai.com
+
+### 3.7 Interesting Files Scan recon-ng
+
+recon-ng was able to find two interesting files:
+- robots.txt
+- sitemap.xml
+However these could be false positives as they do not seem particularly interesting and further exploration of recon-ng modules should be considered.
 
 ## 4. Integration and Analysis:
 

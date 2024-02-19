@@ -2,14 +2,14 @@
 
 ## Table of Contents:
 
-[Executive Summary](#executive-summary)
-[Introduction](#1-introduction)
-[Methodology](#2-methodology)
-[Findings](#3-findings)
-[Integration and Analysis](#4-integration-and-analysis)
-[Recommendations](#5-recommendations)
-[Challenges](#6-challenges-and-lessons-learned)
-[Conclusion](#7-conclusion)
+### [Executive Summary](#executive-summary)
+### [Introduction](#1-introduction)
+### [Methodology](#2-methodology)
+### [Findings](#3-findings)
+### [Integration and Analysis](#4-integration-and-analysis)
+### [Recommendations](#5-recommendations)
+### [Challenges](#6-challenges-and-lessons-learned)
+### [Conclusion](#7-conclusion)
 
 ## Executive Summary:
 

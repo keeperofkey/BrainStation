@@ -1,0 +1,674 @@
+# Vulnerability Remediation Plan Template
+## 1. Asset Identification and Documentation
+### 1.1 Asset Inventory
+- Asset Name: httpd-alpine
+  - Type: Server
+  - Owner: Medical Office
+  - Function: Web server for EHR system
+- Asset Name: spark
+  - Type: Application
+  - Owner: Medical Office
+  - Function: Engine for data analytics
+- Asset Name: cassandra
+  - Type: Database
+  - Owner: Medical Office
+  - Function: Management system for patient data
+- Asset Name: Ubuntu
+  - Type: Operating System
+  - Owner: Medical Office
+  - Function: Operating system for dental imaging system
+- Asset Name: amazon-linux
+  - Type: Operating System
+  - Owner: AWS
+  - Function: Operating system for EC2 server
+## 2. Prioritization of Assets
+Prioritize assets based on their criticality to business functions and potential impact on the enterprise in case of a security breach.
+- Critical Assets: 
+  - cassandra due to impact on patient data
+  - amazon-linux due to impact on patient records
+- High Priority Assets: 
+  - Ubuntu due to impact on patient care
+  - spark due to impact on patient care
+- Medium Priority Assets: 
+  - httpd-alpine due to impact on availability and scheduling
+## 3. Prioritization of Vulnerabilities
+Rank vulnerabilities based on their severity, potential impact, and exploitability. Also consider the asset prioritization when ranking vulnerabilities. Make note of any assumptions 
+made.
+
+### 3.1 Critical Vulnerabilities
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
+|-|-|-|-|-|-|-|
+| spark | org.apache.zookeeper:zookeeper | CVE-2023-44981 | CRITICAL | 3.6.3 | 3.7.2, 3.8.3, 3.9.1 | Authorization Bypass Through User-Controlled Key vulnerability, an arbitrary endpoint could join the cluster and begin propagating counterfeit changes to the leader, essentially giving it complete read-write access to the data tree. |
+| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10202 | CRITICAL | 1.9.13 |  | A series of deserialization vulnerabilities implementing a whitelist approach that will mitigate these vulnerabilities |
+| spark | org.apache.derby:derby | CVE-2022-46337 | CRITICAL | 10.14.2.0 | 10.17.1.0 | LDAP (Lightweight Directory Access Protocol) injection vulnerability, possibility that an intruder could bypass authentication checks can also be used to store usernames and passwords as part of a single sign-on (SSO) system |
+| httpd-alpine | libcurl | CVE-2023-38545 | CRITICAL | 7.88.1-r1 | 8.4.0-r0 | buffer overflow flaw in environments where curl is configured to use a SOCKS5 proxy, a remote attacker could possibly use this issue to execute arbitrary code |
+
+### 3.2 High-Priority Vulnerabilities
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
+|-|-|-|-|-|-|-|
+| cassandra | ch.qos.logback:logback-classic | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | |
+| cassandra | ch.qos.logback:logback-core | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | |
+| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4.2 |   |
+| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4 | |
+| cassandra | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.1 | 1.1.10.4 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-1471 | HIGH | 1.26 | 2.0 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-25857 | HIGH | 1.26 | 1.31 | |
+| cassandra | github.com/opencontainers/runc | CVE-2023-27561 | HIGH | v1.1.0 | 1.1.5 | |
+| spark | org.apache.ivy:ivy | CVE-2022-46751 | HIGH | 2.5.1 | 2.5.2 | |
+| spark | org.apache.mesos:mesos | CVE-2018-1330 | HIGH | 1.4.3 | 1.6.0 |   |
+| spark | org.apache.thrift:libthrift | CVE-2019-0205 | HIGH | 0.12.0 | 0.13.0 | |
+| spark | org.apache.thrift:libthrift | CVE-2020-13949 | HIGH | 0.12.0 | 0.14.0 | |
+| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10172 | HIGH | 1.9.13 |  | |
+| spark | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.3 | 1.1.10.4 |   |
+| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.7.7 | 1.11.3 | |
+| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.11.2 | 1.11.3 | |
+| spark | net.minidev:json-smart | CVE-2023-1370 | HIGH | 1.3.2 | 2.4.9 | |
+| spark | net.minidev:json-smart | CVE-2021-31684 | HIGH | 1.3.2 | 1.3.3, 2.4.4 | |
+| spark | io.netty:netty-codec-http2 | GHSA-xpw8-rcwv-8f8p | HIGH | 4.1.96.Final | 4.1.100.Final | |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 |  |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.7.1 | 3.15.0 | |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.7.1 | 3.16.1, 3.18.2, 3.19.2 | |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 |   |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.3.0 | 3.15.0 |  |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.3.0 | 3.16.1, 3.18.2, 3.19.2 | |
+| spark | com.google.code.gson:gson | CVE-2022-25647 | HIGH | 2.2.4 | 2.8.9 | |
+| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4 | |
+| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4.2 | |
+| spark | linux-libc-dev | CVE-2023-4244 | HIGH | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-20569 | HIGH | 5.4.0-166.183 |  | |
+| amazon-linux | ca-certificates | CVE-2023-37920 | HIGH | 2021.2.50-72.amzn2.0.7 | 2021.2.50-72.amzn2.0.8 | |
+| amazon-linux | curl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 |   |
+| amazon-linux | curl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
+| amazon-linux | curl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
+| amazon-linux | libcurl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 | |
+| amazon-linux | libcurl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 |   |
+| amazon-linux | libcurl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
+| amazon-linux | libnghttp2 | CVE-2023-44487 | HIGH | 1.41.0-1.amzn2.0.1 | 1.41.0-1.amzn2.0.4 | |
+| amazon-linux | libssh2 | CVE-2020-22218 | HIGH | 1.4.3-12.amzn2.2.4 | 1.4.3-12.amzn2.2.6 | |
+| amazon-linux | libxml2 | CVE-2023-45322 | HIGH | 2.9.1-6.amzn2.5.8 | 2.9.1-6.amzn2.5.13 | |
+| amazon-linux | python | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | |
+| amazon-linux | python-libs | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | |
+| amazon-linux | vim-data | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| amazon-linux | vim-minimal | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 |   |
+| amazon-linux | vim-minimal | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
+| Ubuntu | libsystemd0 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
+| Ubuntu | libudev1 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
+| httpd-alpine | libcrypto3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | |
+| httpd-alpine | libcurl | CVE-2023-28319 | HIGH | 7.88.1-r1 | 8.1.0-r0 | |
+| httpd-alpine | libcurl | CVE-2023-38039 | HIGH | 7.88.1-r1 | 8.3.0 | |
+| httpd-alpine | libssl3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | |
+| httpd-alpine | nghttp2-libs | CVE-2023-35945 | HIGH | 1.51.0-r0 | 1.51.0-r1 | |
+| httpd-alpine | nghttp2-libs | CVE-2023-44487 | HIGH | 1.51.0-r0 | 1.51.0-r2 | |
+| httpd-alpine | perl | CVE-2023-47038 | HIGH | 5.36.0-r0 | 5.36.2-r0 | |
+
+### 3.3 Medium-Priority Vulnerabilities
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
+|-|-|-|-|-|-|-|
+| cassandra | libc-bin | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| cassandra | libc6 | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| cassandra | libgnutls30 | CVE-2023-5981 | MEDIUM | 3.6.13-2ubuntu1.8 | 3.6.13-2ubuntu1.9 | |
+| cassandra | libgssapi-krb5-2 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| cassandra | libk5crypto3 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| cassandra | libkrb5-3 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| cassandra | libkrb5support0 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| cassandra | liblzma5 | CVE-2020-22916 | MEDIUM | 5.2.4-1ubuntu1.1 |  |   |
+| cassandra | libnghttp2-14 | CVE-2023-44487 | MEDIUM | 1.40.0-1ubuntu0.1 | 1.40.0-1ubuntu0.2 | |
+| cassandra | libpython3.8-minimal | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| cassandra | libpython3.8-minimal | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| cassandra | libpython3.8-stdlib | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | |   |
+| cassandra | libpython3.8-stdlib | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| cassandra | locales | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| cassandra | perl-base | CVE-2023-47038 | MEDIUM | 5.30.0-9ubuntu0.4 | 5.30.0-9ubuntu0.5 | |
+| cassandra | python3.8 | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| cassandra | python3.8 | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| cassandra | python3.8-minimal | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| cassandra | python3.8-minimal | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| cassandra | tar | CVE-2023-39804 | MEDIUM | 1.30+dfsg-7ubuntu0.20.04.3 |  | |
+| cassandra | wget | CVE-2021-31879 | MEDIUM | 1.20.3-1ubuntu2 |  | |
+| cassandra | com.google.guava:guava | CVE-2023-2976 | MEDIUM | 27.0-jre | 32.0.0-android | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-38749 | MEDIUM | 1.26 | 1.31 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-38750 | MEDIUM | 1.26 | 1.31 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-38751 | MEDIUM | 1.26 | 1.31 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-38752 | MEDIUM | 1.26 | 1.32 | |
+| cassandra | org.yaml:snakeyaml | CVE-2022-41854 | MEDIUM | 1.26 | 1.32 | |
+| cassandra | github.com/opencontainers/runc | CVE-2022-29162 | MEDIUM | v1.1.0 | 1.1.2 | |
+| cassandra | github.com/opencontainers/runc | CVE-2023-28642 | MEDIUM | v1.1.0 | 1.1.5 | |
+| amazon-linux | curl | CVE-2020-19909 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | curl | CVE-2023-28319 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | curl | CVE-2023-28321 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | curl | CVE-2023-28322 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | elfutils-libelf | CVE-2020-21047 | MEDIUM | 0.176-2.amzn2.0.1 | 0.176-2.amzn2.0.2 | |
+| amazon-linux | expat | CVE-2022-23990 | MEDIUM | 2.1.0-15.amzn2.0.2 | 2.1.0-15.amzn2.0.3 | |
+| amazon-linux | expat | CVE-2022-25313 | MEDIUM | 2.1.0-15.amzn2.0.2 | 2.1.0-15.amzn2.0.3 | |
+| amazon-linux | krb5-libs | CVE-2023-36054 | MEDIUM | 1.15.1-55.amzn2.2.5 | 1.15.1-55.amzn2.2.6 |   |
+| amazon-linux | libcurl | CVE-2020-19909 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | libcurl | CVE-2023-28319 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | libcurl | CVE-2023-28321 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | libcurl | CVE-2023-28322 | MEDIUM | 8.0.1-1.amzn2.0.1 | 8.2.1-1.amzn2.0.2 | |
+| amazon-linux | libgcc | CVE-2023-4039 | MEDIUM | 7.3.1-15.amzn2 | 7.3.1-17.amzn2 | |
+| amazon-linux | libsepol | CVE-2021-36084 | MEDIUM | 2.5-8.1.amzn2.0.2 | 2.5-10.amzn2.0.1 | |
+| amazon-linux | libsepol | CVE-2021-36085 | MEDIUM | 2.5-8.1.amzn2.0.2 | 2.5-10.amzn2.0.1 | |
+| amazon-linux | libsepol | CVE-2021-36086 | MEDIUM | 2.5-8.1.amzn2.0.2 | 2.5-10.amzn2.0.1 | |
+| amazon-linux | libsepol | CVE-2021-36087 | MEDIUM | 2.5-8.1.amzn2.0.2 | 2.5-10.amzn2.0.1 | |
+| amazon-linux | libstdc++ | CVE-2023-4039 | MEDIUM | 7.3.1-15.amzn2 | 7.3.1-17.amzn2 | |
+| amazon-linux | libxml2 | CVE-2023-39615 | MEDIUM | 2.9.1-6.amzn2.5.8 | 2.9.1-6.amzn2.5.11 | |
+| amazon-linux | openssl-libs | CVE-2023-3446 | MEDIUM | 1:1.0.2k-24.amzn2.0.7 | 1:1.0.2k-24.amzn2.0.9 | |
+| amazon-linux | openssl-libs | CVE-2023-3817 | MEDIUM | 1:1.0.2k-24.amzn2.0.7 | 1:1.0.2k-24.amzn2.0.9 | |
+| amazon-linux | vim-data | CVE-2023-46246 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.2081-1.amzn2.0.1 | |
+| amazon-linux | vim-data | CVE-2023-5344 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.2 | |
+| amazon-linux | vim-data | CVE-2023-5441 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.3 | |
+| amazon-linux | vim-data | CVE-2023-5535 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.3 | |
+| amazon-linux | vim-minimal | CVE-2023-46246 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.2081-1.amzn2.0.1 |   |
+| amazon-linux | vim-minimal | CVE-2023-5344 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.2 | |
+| amazon-linux | vim-minimal | CVE-2023-5441 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.3 | |
+| amazon-linux | vim-minimal | CVE-2023-5535 | MEDIUM | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.3 | |
+| amazon-linux | zlib | CVE-2023-45853 | MEDIUM | 1.2.7-19.amzn2.0.2 | 1.2.7-19.amzn2.0.3 | |
+| ubuntu | apt | CVE-2020-27350 | MEDIUM | 1.6.12 | 1.6.12ubuntu0.2 | |
+| ubuntu | apt | CVE-2020-3810 | MEDIUM | 1.6.12 | 1.6.12ubuntu0.1 | |
+| ubuntu | dpkg | CVE-2022-1664 | MEDIUM | 1.19.0.5ubuntu2.3 | 1.19.0.5ubuntu2.4 | |
+| ubuntu | e2fsprogs | CVE-2019-5188 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.3 | |
+| ubuntu | e2fsprogs | CVE-2022-1304 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.4 | |
+| ubuntu | gpgv | CVE-2022-34903 | MEDIUM | 2.2.4-1ubuntu1.2 | 2.2.4-1ubuntu1.6 | |
+| ubuntu | gzip | CVE-2022-1271 | MEDIUM | 1.6-5ubuntu1 | 1.6-5ubuntu1.2 | |
+| ubuntu | libapt-pkg5.0 | CVE-2020-27350 | MEDIUM | 1.6.12 | 1.6.12ubuntu0.2 | |
+| ubuntu | libapt-pkg5.0 | CVE-2020-3810 | MEDIUM | 1.6.12 | 1.6.12ubuntu0.1 | |
+| ubuntu | libc-bin | CVE-2018-11236 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2018-11237 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2018-19591 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2020-1751 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2021-3999 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2018-11236 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2018-11237 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2018-19591 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2020-1751 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2021-3999 | MEDIUM | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libcom-err2 | CVE-2019-5188 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.3 | |
+| ubuntu | libcom-err2 | CVE-2022-1304 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.4 | |
+| ubuntu | libext2fs2 | CVE-2019-5188 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.3 | |
+| ubuntu | libext2fs2 | CVE-2022-1304 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.4 | |
+| ubuntu | libgcrypt20 | CVE-2019-13627 | MEDIUM | 1.8.1-4ubuntu1.1 | 1.8.1-4ubuntu1.2 | |
+| ubuntu | libgcrypt20 | CVE-2021-40528 | MEDIUM | 1.8.1-4ubuntu1.1 | 1.8.1-4ubuntu1.3 | |
+| ubuntu | libgnutls30 | CVE-2022-2509 | MEDIUM | 3.5.18-1ubuntu1.2 | 3.5.18-1ubuntu1.6 | |
+| ubuntu | libhogweed4 | CVE-2021-20305 | MEDIUM | 3.4-1 | 3.4-1ubuntu0.1 | |
+| ubuntu | libhogweed4 | CVE-2021-3580 | MEDIUM | 3.4-1 | 3.4.1-0ubuntu0.18.04.1 | |
+| ubuntu | liblz4-1 | CVE-2021-3520 | MEDIUM | 0.0~r131-2ubuntu3 | 0.0~r131-2ubuntu3.1 | |
+| ubuntu | liblzma5 | CVE-2022-1271 | MEDIUM | 5.2.2-1.3 | 5.2.2-1.3ubuntu0.1 | |
+| ubuntu | libncurses5 | CVE-2023-29491 | MEDIUM | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncursesw5 | CVE-2023-29491 | MEDIUM | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libnettle6 | CVE-2021-20305 | MEDIUM | 3.4-1 | 3.4-1ubuntu0.1 | |
+| ubuntu | libnettle6 | CVE-2021-3580 | MEDIUM | 3.4-1 | 3.4.1-0ubuntu0.18.04.1 | |
+| ubuntu | libp11-kit0 | CVE-2020-29361 | MEDIUM | 0.23.9-2 | 0.23.9-2ubuntu0.1 | |
+| ubuntu | libp11-kit0 | CVE-2020-29362 | MEDIUM | 0.23.9-2 | 0.23.9-2ubuntu0.1 | |
+| ubuntu | libp11-kit0 | CVE-2020-29363 | MEDIUM | 0.23.9-2 | 0.23.9-2ubuntu0.1 | |
+| ubuntu | libss2 | CVE-2019-5188 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.3 | |
+| ubuntu | libss2 | CVE-2022-1304 | MEDIUM | 1.44.1-1ubuntu1.2 | 1.44.1-1ubuntu1.4 | |
+| ubuntu | libsystemd0 | CVE-2020-1712 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.38 |  |
+| ubuntu | libsystemd0 | CVE-2022-2526 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.56 | |
+| ubuntu | libsystemd0 | CVE-2022-3821 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.57 | |
+| ubuntu | libtinfo5 | CVE-2023-29491 | MEDIUM | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libudev1 | CVE-2020-1712 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libudev1 | CVE-2022-2526 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.56 | |
+| ubuntu | libudev1 | CVE-2022-3821 | MEDIUM | 237-3ubuntu10.33 | 237-3ubuntu10.57 | |
+| ubuntu | libzstd1 | CVE-2021-24031 | MEDIUM | 1.3.3+dfsg-2ubuntu1.1 | 1.3.3+dfsg-2ubuntu1.2 | |
+| ubuntu | libzstd1 | CVE-2021-24032 | MEDIUM | 1.3.3+dfsg-2ubuntu1.1 | 1.3.3+dfsg-2ubuntu1.2 | |
+| ubuntu | ncurses-base | CVE-2023-29491 | MEDIUM | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 |   |
+| ubuntu | ncurses-bin | CVE-2023-29491 | MEDIUM | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | perl-base | CVE-2020-16156 | MEDIUM | 5.26.1-6ubuntu0.3 | 5.26.1-6ubuntu0.6 | |
+| ubuntu | perl-base | CVE-2023-31484 | MEDIUM | 5.26.1-6ubuntu0.3 | 5.26.1-6ubuntu0.7 | |
+| ubuntu | tar | CVE-2022-48303 | MEDIUM | 1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.4 | |
+| ubuntu | zlib1g | CVE-2018-25032 | MEDIUM | 1:1.2.11.dfsg-0ubuntu2 | 1:1.2.11.dfsg-0ubuntu2.1 | |
+| ubuntu | zlib1g | CVE-2022-37434 | MEDIUM | 1:1.2.11.dfsg-0ubuntu2 | 1:1.2.11.dfsg-0ubuntu2.2 | |
+| spark | binutils | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 | |   |
+| spark | binutils | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 | |   |
+| spark | binutils | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 | | |
+| spark | binutils-common | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-common | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-common | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 |  |   |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | cpp | CVE-2020-13844 | MEDIUM | 4:9.3.0-1ubuntu2 |  |   |
+| spark | g++ | CVE-2020-13844 | MEDIUM | 4:9.3.0-1ubuntu2 |   | |
+| spark | gcc | CVE-2020-13844 | MEDIUM | 4:9.3.0-1ubuntu2 |  | |
+| spark | krb5-user | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libbinutils | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libbinutils | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libbinutils | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 |  |   |
+| spark | libbinutils | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libbinutils | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libbinutils | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 |  |   |
+| spark | libbinutils | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libbinutils | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libc-bin | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |   | |
+| spark | libc-dev-bin | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |   | |
+| spark | libc6 | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| spark | libc6-dev | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| spark | libctf-nobfd0 | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf-nobfd0 | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf-nobfd0 | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf-nobfd0 | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 |    |   |
+| spark | libctf-nobfd0 | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 |   | |
+| spark | libctf-nobfd0 | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf-nobfd0 | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf0 | CVE-2020-19726 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2021-46174 | MEDIUM | 2.34-6ubuntu1.6 |    | |
+| spark | libctf0 | CVE-2022-35205 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-44840 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-45703 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-47007 | MEDIUM | 2.34-6ubuntu1.6 |  |   |
+| spark | libctf0 | CVE-2022-47008 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-47010 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-47011 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-47695 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-48063 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-48065 | MEDIUM | 2.34-6ubuntu1.6 |  | |
+| spark | libgnutls30 | CVE-2023-5981 | MEDIUM | 3.6.13-2ubuntu1.8 | 3.6.13-2ubuntu1.9 | |
+| spark | libgssapi-krb5-2 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 |   |
+| spark | libgssrpc4 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libk5crypto3 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libkadm5clnt-mit11 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libkadm5srv-mit11 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 |   |
+| spark | libkdb5-9 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libkrb5-3 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | libkrb5support0 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | |
+| spark | liblzma5 | CVE-2020-22916 | MEDIUM | 5.2.4-1ubuntu1.1 |  | |
+| spark | libnghttp2-14 | CVE-2023-44487 | MEDIUM | 1.40.0-1ubuntu0.1 | 1.40.0-1ubuntu0.2 |   |
+| spark | libnss3 | CVE-2023-4421 | MEDIUM | 2:3.49.1-1ubuntu1.9 |    | |
+| spark | libnss3 | CVE-2023-5388 | MEDIUM | 2:3.49.1-1ubuntu1.9 |    | |
+| spark | libperl5.30 | CVE-2023-47038 | MEDIUM | 5.30.0-9ubuntu0.4 | 5.30.0-9ubuntu0.5 | |
+| spark | libpython3.8 | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |   | |
+| spark | libpython3.8 | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | libpython3.8-dev | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |   |   |
+| spark | libpython3.8-dev | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | libpython3.8-minimal | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |     | |
+| spark | libpython3.8-minimal | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | libpython3.8-stdlib | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |     |   |
+| spark | libpython3.8-stdlib | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | linux-libc-dev | CVE-2013-7445 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2015-8553 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2016-8660 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-17977 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-12362 | MEDIUM | 5.4.0-166.183 |  |   |
+| spark | linux-libc-dev | CVE-2020-24504 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-26144 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-27835 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-36310 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-3864 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-4148 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-0400 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-0480 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-1247 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-1280 | MEDIUM | 5.4.0-166.183 |     | |
+| spark | linux-libc-dev | CVE-2022-25836 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-2961 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-29900 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-3344 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-3523 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-36402 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-38096 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-38457 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-39189 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-40133 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-4543 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-0030 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-1582 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-2007 | MEDIUM | 5.4.0-166.183 |     | |
+| spark | linux-libc-dev | CVE-2023-23000 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-23004 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-26242 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-28327 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-3006 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-31082 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-37453 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-39192 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-39193 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-39198 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-45863 | MEDIUM | 5.4.0-166 |  | |
+| spark | linux-libc-dev | CVE-2023-45871 | MEDIUM | 5.4.0-166.183 | 5.4.0-167.184 | |
+| spark | linux-libc-dev | CVE-2023-4732 | MEDIUM | 5.4.0-166.183 |  | |
+| spark | locales | CVE-2023-5156 | MEDIUM | 2.31-0ubuntu9.12 |  | |
+| spark | perl | CVE-2023-47038 | MEDIUM | 5.30.0-9ubuntu0.4 | 5.30.0-9ubuntu0.5 | |
+| spark | perl-base | CVE-2023-47038 | MEDIUM | 5.30.0-9ubuntu0.4 | 5.30.0-9ubuntu0.5 | |
+| spark | perl-modules-5.30 | CVE-2023-47038 | MEDIUM | 5.30.0-9ubuntu0.4 | 5.30.0-9ubuntu0.5 | |
+| spark | python-pip-whl | CVE-2018-25091 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python-pip-whl | CVE-2023-43804 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python-pip-whl | CVE-2023-45803 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python3-pip | CVE-2018-25091 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python3-pip | CVE-2023-43804 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python3-pip | CVE-2023-45803 | MEDIUM | 20.0.2-5ubuntu1.9 | 20.0.2-5ubuntu1.10 | |
+| spark | python3.8 | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| spark | python3.8 | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | python3.8-dev | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| spark | python3.8-dev | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 |   |
+| spark | python3.8-minimal | CVE-2023-27043 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 |  | |
+| spark | python3.8-minimal | CVE-2023-40217 | MEDIUM | 3.8.10-0ubuntu1~20.04.8 | 3.8.10-0ubuntu1~20.04.9 | |
+| spark | tar | CVE-2023-39804 | MEDIUM | 1.30+dfsg-7ubuntu0.20.04.3 |  | |
+| spark | wget | CVE-2021-31879 | MEDIUM | 1.20.3-1ubuntu2 |  | |
+| spark | xz-utils | CVE-2020-22916 | MEDIUM | 5.2.4-1ubuntu1.1 |   | |
+| spark | com.fasterxml.woodstox:woodstox-core | CVE-2022-40152 | MEDIUM | 5.3.0 | 6.4.0, 5.4.0 | |
+| spark | com.google.guava:guava | CVE-2018-10237 | MEDIUM | 14.0.1 | 24.1.1-android | |
+| spark | com.google.guava:guava | CVE-2018-10237 | MEDIUM | 14.0.1 | 24.1.1-android | |
+| spark | com.google.guava:guava | CVE-2023-2976 | MEDIUM | 14.0.1 | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2023-2976 | MEDIUM | 14.0.1 | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2023-2976 | MEDIUM | 30.1.1-jre | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2023-2976 | MEDIUM | 30.1.1-jre | 32.0.0-android |   |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3171 | MEDIUM | 3.3.0 | 3.21.7, 3.20.3, 3.19.6, 3.16.3 | |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3171 | MEDIUM | 3.7.1 | 3.21.7, 3.20.3, 3.19.6, 3.16.3 | |
+| spark | com.squareup.okio:okio | CVE-2023-3635 | MEDIUM | 1.15.0 | 3.4.0, 1.17.6 | |
+| spark | commons-net:commons-net | CVE-2021-37533 | MEDIUM | 3.6 | 3.9.0 | |
+| spark | org.apache.commons:commons-compress | CVE-2023-42503 | MEDIUM | 1.23.0 | 1.24.0 | |
+| spark | org.eclipse.jetty:jetty-http | CVE-2023-40167 | MEDIUM | 9.4.43.v20210629 | 9.4.52, 10.0.16, 11.0.16, 12.0.1 | |
+| httpd-alpine | libcrypto3 | CVE-2023-1255 | MEDIUM | 3.0.8-r3 | 3.0.8-r4 | |
+| httpd-alpine | libcrypto3 | CVE-2023-2650 | MEDIUM | 3.0.8-r3 | 3.0.9-r0 | |
+| httpd-alpine | libcrypto3 | CVE-2023-2975 | MEDIUM | 3.0.8-r3 | 3.0.9-r2 | |
+| httpd-alpine | libcrypto3 | CVE-2023-3446 | MEDIUM | 3.0.8-r3 | 3.0.9-r3 | |
+| httpd-alpine | libcrypto3 | CVE-2023-3817 | MEDIUM | 3.0.8-r3 | 3.0.10-r0 | |
+| httpd-alpine | libcrypto3 | CVE-2023-5678 | MEDIUM | 3.0.8-r3 | 3.0.12-r1 | |
+| httpd-alpine | libcurl | CVE-2023-28320 | MEDIUM | 7.88.1-r1 | 8.1.0-r0 | |
+| httpd-alpine | libcurl | CVE-2023-28321 | MEDIUM | 7.88.1-r1 | 8.1.0-r0 | |
+| httpd-alpine | libssl3 | CVE-2023-1255 | MEDIUM | 3.0.8-r3 | 3.0.8-r4 |   |
+| httpd-alpine | libssl3 | CVE-2023-2650 | MEDIUM | 3.0.8-r3 | 3.0.9-r0 | |
+| httpd-alpine | libssl3 | CVE-2023-2975 | MEDIUM | 3.0.8-r3 | 3.0.9-r2 | |
+| httpd-alpine | libssl3 | CVE-2023-3446 | MEDIUM | 3.0.8-r3 | 3.0.9-r3 | |
+| httpd-alpine | libssl3 | CVE-2023-3817 | MEDIUM | 3.0.8-r3 | 3.0.10-r0 | |
+| httpd-alpine | libssl3 | CVE-2023-5678 | MEDIUM | 3.0.8-r3 | 3.0.12-r1 | |
+| httpd-alpine | libxml2 | CVE-2023-28484 | MEDIUM | 2.10.3-r1 | 2.10.4-r0 | |
+| httpd-alpine | libxml2 | CVE-2023-29469 | MEDIUM | 2.10.3-r1 | 2.10.4-r0 | |
+
+### 3.4 Low-Priority Vulnerabilities
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
+|-|-|-|-|-|-|-|
+| cassandra | coreutils | CVE-2016-2781 | LOW | 8.30-3ubuntu2 |  |   |
+| cassandra | gpgv | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| cassandra | libc-bin | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | libc-bin | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | libc-bin | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |   | |
+| cassandra | libc6 | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | libc6 | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  |  |
+| cassandra | libc6 | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | libldap-2.4-2 | CVE-2023-2953 | LOW | 2.4.49+dfsg-2ubuntu1.9 |  | |
+| cassandra | libldap-common | CVE-2023-2953 | LOW | 2.4.49+dfsg-2ubuntu1.9 |  | |
+| cassandra | libpcre3 | CVE-2017-11164 | LOW | 2:8.39-12ubuntu0.1 |  | |
+| cassandra | libpng16-16 | CVE-2022-3857 | LOW | 1.6.37-2 |    | |
+| cassandra | libprocps8 | CVE-2023-4016 | LOW | 2:3.3.16-1ubuntu2.3 | 2:3.3.16-1ubuntu2.4 | |
+| cassandra | libsystemd0 | CVE-2023-26604 | LOW | 245.4-4ubuntu3.22 |  | |
+| cassandra | libudev1 | CVE-2023-26604 | LOW | 245.4-4ubuntu3.22 |  | |
+| cassandra | locales | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | locales | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| cassandra | locales | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |   | |
+| cassandra | login | CVE-2013-4235 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |  | |
+| cassandra | login | CVE-2023-29383 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |  | |
+| cassandra | passwd | CVE-2013-4235 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |  | |
+| cassandra | passwd | CVE-2023-29383 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |   | |
+| cassandra | procps | CVE-2023-4016 | LOW | 2:3.3.16-1ubuntu2.3 | 2:3.3.16-1ubuntu2.4 | |
+| cassandra | com.google.guava:guava | CVE-2020-8908 | LOW | 27.0-jre | 32.0.0-android | |
+| cassandra | github.com/opencontainers/runc | CVE-2023-25809 | LOW | v1.1.0 | 1.1.5 | |
+| spark | binutils | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  |   |
+| spark | binutils-common | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-common | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |    | |
+| spark | binutils-x86-64-linux-gnu | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |   | |
+| spark | binutils-x86-64-linux-gnu | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | binutils-x86-64-linux-gnu | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | coreutils | CVE-2016-2781 | LOW | 8.30-3ubuntu2 |  | |
+| spark | dirmngr | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gnupg | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gnupg-l10n | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  |   |
+| spark | gnupg-utils | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gnupg2 | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gpg | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gpg-agent | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gpg-wks-client | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gpg-wks-server | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |    |   |
+| spark | gpgconf | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | gpgsm | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |   | |
+| spark | gpgv | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
+| spark | libbinutils | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libbinutils | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |  |   |
+| spark | libc-bin | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |   | |
+| spark | libc-bin | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc-bin | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |   | |
+| spark | libc-dev-bin | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc-dev-bin | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc-dev-bin | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |  |   |
+| spark | libc6 | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc6 | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |   | |
+| spark | libc6 | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc6-dev | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc6-dev | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libc6-dev | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | libctf-nobfd0 | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  |   |
+| spark | libctf-nobfd0 | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf-nobfd0 | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf-nobfd0 | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2017-13716 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2018-20657 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2019-1010204 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libctf0 | CVE-2022-48064 | LOW | 2.34-6ubuntu1.6 |  | |
+| spark | libldap-2.4-2 | CVE-2023-2953 | LOW | 2.4.49+dfsg-2ubuntu1.9 |  | |
+| spark | libldap-common | CVE-2023-2953 | LOW | 2.4.49+dfsg-2ubuntu1.9 |  |   |
+| spark | libpcre3 | CVE-2017-11164 | LOW | 2:8.39-12ubuntu0.1 |  | |
+| spark | libpng16-16 | CVE-2022-3857 | LOW | 1.6.37-2 |   | |
+| spark | libprocps8 | CVE-2023-4016 | LOW | 2:3.3.16-1ubuntu2.3 | 2:3.3.16-1ubuntu2.4 | |
+| spark | libsystemd0 | CVE-2023-26604 | LOW | 245.4-4ubuntu3.22 |  | |
+| spark | libudev1 | CVE-2023-26604 | LOW | 245.4-4ubuntu3.22 |  | |
+| spark | linux-libc-dev | CVE-2017-0537 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2017-13165 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2017-13693 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-1121 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-12928 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-12929 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-12930 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2018-12931 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2019-14899 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2019-15213 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2019-19378 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2019-19814 | LOW | 5.4.0-166.183 |   | |
+| spark | linux-libc-dev | CVE-2020-12363 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-12364 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-14304 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2020-35501 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-26934 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-32078 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-34981 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-39801 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2021-44879 | LOW | 5.4.0-166.183 |    | |
+| spark | linux-libc-dev | CVE-2022-0854 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-41848 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-44033 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-44034 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-45884 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-45885 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-47518 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2022-47519 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-1989 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-22995 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-31085 | LOW | 5.4.0-166.183 | 5.4.0-167.184 | |
+| spark | linux-libc-dev | CVE-2023-33288 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-4133 | LOW | 5.4.0-166.183 |  | |
+| spark | linux-libc-dev | CVE-2023-4134 | LOW | 5.4.0-166.183 |  | |
+| spark | locales | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | locales | CVE-2023-4806 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | locales | CVE-2023-4813 | LOW | 2.31-0ubuntu9.12 |  | |
+| spark | login | CVE-2013-4235 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |   | |
+| spark | login | CVE-2023-29383 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |   | |
+| spark | passwd | CVE-2013-4235 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |   | |
+| spark | passwd | CVE-2023-29383 | LOW | 1:4.8.1-1ubuntu5.20.04.4 |   | |
+| spark | patch | CVE-2018-6952 | LOW | 2.7.6-6 |  | |
+| spark | patch | CVE-2021-45261 | LOW | 2.7.6-6 |  | |
+| spark | procps | CVE-2023-4016 | LOW | 2:3.3.16-1ubuntu2.3 | 2:3.3.16-1ubuntu2.4 | |
+| spark | com.google.guava:guava | CVE-2020-8908 | LOW | 14.0.1 | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2020-8908 | LOW | 14.0.1 | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2020-8908 | LOW | 30.1.1-jre | 32.0.0-android | |
+| spark | com.google.guava:guava | CVE-2020-8908 | LOW | 30.1.1-jre | 32.0.0-android | |
+| spark | org.eclipse.jetty:jetty-http | CVE-2022-2047 | LOW | 9.4.43.v20210629 | 9.4.47, 10.0.10, 11.0.10 |   |
+| spark | org.eclipse.jetty:jetty-xml | GHSA-58qw-p7qm-5rvh | LOW | 9.4.43.v20210629 | 10.0.16, 11.0.16, 12.0.0, 9.4.52 | |
+| ubuntu | bash | CVE-2019-18276 | LOW | 4.4.18-2ubuntu1.2 | 4.4.18-2ubuntu1.3 | |
+| ubuntu | bsdutils | CVE-2018-7738 | LOW | 1:2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | fdisk | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | gcc-8-base | CVE-2019-15847 | LOW | 8.3.0-6ubuntu1~18.04.1 | 8.3.0-26ubuntu1~18.04 | |
+| ubuntu | gpgv | CVE-2019-13050 | LOW | 2.2.4-1ubuntu1.2 | 2.2.4-1ubuntu1.5 | |
+| ubuntu | gpgv | CVE-2019-14855 | LOW | 2.2.4-1ubuntu1.2 | 2.2.4-1ubuntu1.3 | |
+| ubuntu | libblkid1 | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | libc-bin | CVE-2016-10228 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2019-19126 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2019-25013 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2019-9169 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2020-10029 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2020-1752 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc-bin | CVE-2020-27618 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2020-29562 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2020-6096 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2021-3326 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2021-35942 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2022-23218 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc-bin | CVE-2022-23219 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2016-10228 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2019-19126 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2019-25013 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2019-9169 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2020-10029 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2020-1752 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.2 | |
+| ubuntu | libc6 | CVE-2020-27618 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2020-29562 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2020-6096 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2021-3326 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2021-35942 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2022-23218 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libc6 | CVE-2022-23219 | LOW | 2.27-3ubuntu1 | 2.27-3ubuntu1.5 | |
+| ubuntu | libfdisk1 | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 |   |
+| ubuntu | libgcc1 | CVE-2019-15847 | LOW | 1:8.3.0-6ubuntu1~18.04.1 | 8.3.0-26ubuntu1~18.04 | |
+| ubuntu | libgcrypt20 | CVE-2021-33560 | LOW | 1.8.1-4ubuntu1.1 | 1.8.1-4ubuntu1.3 | |
+| ubuntu | libgmp10 | CVE-2021-43618 | LOW | 2:6.1.2+dfsg-2 | 2:6.1.2+dfsg-2ubuntu0.1 | |
+| ubuntu | libgnutls30 | CVE-2021-4209 | LOW | 3.5.18-1ubuntu1.2 | 3.5.18-1ubuntu1.6 | |
+| ubuntu | libhogweed4 | CVE-2018-16869 | LOW | 3.4-1 | 3.4.1-0ubuntu0.18.04.1 | |
+| ubuntu | libmount1 | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | libncurses5 | CVE-2019-17594 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncurses5 | CVE-2019-17595 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncurses5 | CVE-2021-39537 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncurses5 | CVE-2022-29458 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncursesw5 | CVE-2019-17594 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncursesw5 | CVE-2019-17595 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libncursesw5 | CVE-2021-39537 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 |   |
+| ubuntu | libncursesw5 | CVE-2022-29458 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libpam-modules | CVE-2022-28321 | LOW | 1.1.8-3.6ubuntu2.18.04.1 | 1.1.8-3.6ubuntu2.18.04.4 | |
+| ubuntu | libpam-modules-bin | CVE-2022-28321 | LOW | 1.1.8-3.6ubuntu2.18.04.1 | 1.1.8-3.6ubuntu2.18.04.4 | |
+| ubuntu | libpam-runtime | CVE-2022-28321 | LOW | 1.1.8-3.6ubuntu2.18.04.1 | 1.1.8-3.6ubuntu2.18.04.4 | |
+| ubuntu | libpam0g | CVE-2022-28321 | LOW | 1.1.8-3.6ubuntu2.18.04.1 | 1.1.8-3.6ubuntu2.18.04.4 |   |
+| ubuntu | libpcre3 | CVE-2019-20838 | LOW | 2:8.39-9 | 2:8.39-9ubuntu0.1 | |
+| ubuntu | libpcre3 | CVE-2020-14155 | LOW | 2:8.39-9 | 2:8.39-9ubuntu0.1 | |
+| ubuntu | libsepol1 | CVE-2021-36084 | LOW | 2.7-1 | 2.7-1ubuntu0.1 | |
+| ubuntu | libsepol1 | CVE-2021-36085 | LOW | 2.7-1 | 2.7-1ubuntu0.1 | |
+| ubuntu | libsepol1 | CVE-2021-36086 | LOW | 2.7-1 | 2.7-1ubuntu0.1 | |
+| ubuntu | libsepol1 | CVE-2021-36087 | LOW | 2.7-1 | 2.7-1ubuntu0.1 |   |
+| ubuntu | libsmartcols1 | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | libstdc++6 | CVE-2019-15847 | LOW | 8.3.0-6ubuntu1~18.04.1 | 8.3.0-26ubuntu1~18.04 |   |
+| ubuntu | libsystemd0 | CVE-2019-20386 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libsystemd0 | CVE-2019-3843 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libsystemd0 | CVE-2019-3844 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libsystemd0 | CVE-2020-13529 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
+| ubuntu | libtinfo5 | CVE-2019-17594 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libtinfo5 | CVE-2019-17595 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 |   |
+| ubuntu | libtinfo5 | CVE-2021-39537 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libtinfo5 | CVE-2022-29458 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | libudev1 | CVE-2019-20386 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libudev1 | CVE-2019-3843 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 | |
+| ubuntu | libudev1 | CVE-2019-3844 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.38 |   |
+| ubuntu | libudev1 | CVE-2020-13529 | LOW | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
+| ubuntu | libuuid1 | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | login | CVE-2018-7169 | LOW | 1:4.5-1ubuntu2 | 1:4.5-1ubuntu2.2 | |
+| ubuntu | mount | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| ubuntu | ncurses-base | CVE-2019-17594 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | ncurses-base | CVE-2019-17595 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | ncurses-base | CVE-2021-39537 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | ncurses-base | CVE-2022-29458 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | ncurses-bin | CVE-2019-17594 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 |   |
+| ubuntu | ncurses-bin | CVE-2019-17595 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | ncurses-bin | CVE-2021-39537 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 |   |
+| ubuntu | ncurses-bin | CVE-2022-29458 | LOW | 6.1-1ubuntu1.18.04 | 6.1-1ubuntu1.18.04.1 | |
+| ubuntu | passwd | CVE-2018-7169 | LOW | 1:4.5-1ubuntu2 | 1:4.5-1ubuntu2.2 | |
+| ubuntu | perl-base | CVE-2020-10543 | LOW | 5.26.1-6ubuntu0.3 | 5.26.1-6ubuntu0.5 | |
+| ubuntu | perl-base | CVE-2020-10878 | LOW | 5.26.1-6ubuntu0.3 | 5.26.1-6ubuntu0.5 |   |
+| ubuntu | perl-base | CVE-2020-12723 | LOW | 5.26.1-6ubuntu0.3 | 5.26.1-6ubuntu0.5 | |
+| ubuntu | tar | CVE-2018-20482 | LOW | 1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | |
+| ubuntu | tar | CVE-2019-9923 | LOW | 1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | |
+| ubuntu | tar | CVE-2021-20193 | LOW | 1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.3 | |
+| ubuntu | util-linux | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
+| httpd-alpine | libcurl | CVE-2023-28322 | LOW | 7.88.1-r1 | 8.1.0-r0 | |
+| httpd-alpine | libcurl | CVE-2023-38546 | LOW | 7.88.1-r1 | 8.4.0-r0 | |
+
+
+## 4. Remediation Plan
+### 4.1 Action Items
+Outline specific actions to remediate each critical vulnerability. Include details such as patching, configuration changes, or deployment of additional security measures.
+Asset
+Package
+Action Items
+
+### 4.2 Responsible Teams
+Identify the teams responsible for executing each action item.
+USE A RACI TABLE
+Patch Management Team: [Specify responsibilities]
+Network Security Team: [Specify responsibilities]
+Application Security Team: [Specify responsibilities]
+

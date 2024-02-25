@@ -36,87 +36,84 @@ Rank vulnerabilities based on their severity, potential impact, and exploitabili
 made.
 
 ### 3.1 Critical Vulnerabilities
-| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
-|-|-|-|-|-|-|-|
-| spark | org.apache.zookeeper:zookeeper | CVE-2023-44981 | CRITICAL | 3.6.3 | 3.7.2, 3.8.3, 3.9.1 | Authorization Bypass Through User-Controlled Key vulnerability, an arbitrary endpoint could join the cluster and begin propagating counterfeit changes to the leader, essentially giving it complete read-write access to the data tree. |
-| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10202 | CRITICAL | 1.9.13 |  | A series of deserialization vulnerabilities implementing a whitelist approach that will mitigate these vulnerabilities |
-| spark | org.apache.derby:derby | CVE-2022-46337 | CRITICAL | 10.14.2.0 | 10.17.1.0 | LDAP (Lightweight Directory Access Protocol) injection vulnerability, possibility that an intruder could bypass authentication checks can also be used to store usernames and passwords as part of a single sign-on (SSO) system |
-| httpd-alpine | libcurl | CVE-2023-38545 | CRITICAL | 7.88.1-r1 | 8.4.0-r0 | buffer overflow flaw in environments where curl is configured to use a SOCKS5 proxy, a remote attacker could possibly use this issue to execute arbitrary code |
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
+|-|-|-|-|-|-|-|-|
+| cassandra | org.yaml:snakeyaml | CVE-2022-1471 | HIGH | 1.26 | 2.0 | unauthenticated remote code execution | 9.8 |
+| spark | org.apache.derby:derby | CVE-2022-46337 | CRITICAL | 10.14.2.0 | 10.17.1.0 | LDAP injection vulnerability, bypass authentication | 9.8 |
+| spark | org.apache.zookeeper:zookeeper | CVE-2023-44981 | CRITICAL | 3.6.3 | 3.7.2, 3.8.3, 3.9.1 | Authorization Bypass | 9.1 |
+| spark | org.apache.ivy:ivy | CVE-2022-46751 | HIGH | 2.5.1 | 2.5.2 | XML injection | 8.2 |
+| amazon-linux | curl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | Buffer overflow | 8.1 |
+| amazon-linux | libcurl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | execute arbitrary code | 8.1 |
+| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10202 | CRITICAL | 1.9.13 |  | A series of deserialization vulnerabilities | 8.1 |
+| httpd-alpine | libcurl | CVE-2023-38545 | CRITICAL | 7.88.1-r1 | 8.4.0-r0 | buffer overflow flaw possible to execute arbitrary code | 8.1 |
 
 ### 3.2 High-Priority Vulnerabilities
-| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
-|-|-|-|-|-|-|-|
-| cassandra | ch.qos.logback:logback-classic | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | |
-| cassandra | ch.qos.logback:logback-core | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | |
-| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4.2 |   |
-| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4 | |
-| cassandra | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.1 | 1.1.10.4 | |
-| cassandra | org.yaml:snakeyaml | CVE-2022-1471 | HIGH | 1.26 | 2.0 | |
-| cassandra | org.yaml:snakeyaml | CVE-2022-25857 | HIGH | 1.26 | 1.31 | |
-| cassandra | github.com/opencontainers/runc | CVE-2023-27561 | HIGH | v1.1.0 | 1.1.5 | |
-| spark | org.apache.ivy:ivy | CVE-2022-46751 | HIGH | 2.5.1 | 2.5.2 | |
-| spark | org.apache.mesos:mesos | CVE-2018-1330 | HIGH | 1.4.3 | 1.6.0 |   |
-| spark | org.apache.thrift:libthrift | CVE-2019-0205 | HIGH | 0.12.0 | 0.13.0 | |
-| spark | org.apache.thrift:libthrift | CVE-2020-13949 | HIGH | 0.12.0 | 0.14.0 | |
-| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10172 | HIGH | 1.9.13 |  | |
-| spark | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.3 | 1.1.10.4 |   |
-| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.7.7 | 1.11.3 | |
-| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.11.2 | 1.11.3 | |
-| spark | net.minidev:json-smart | CVE-2023-1370 | HIGH | 1.3.2 | 2.4.9 | |
-| spark | net.minidev:json-smart | CVE-2021-31684 | HIGH | 1.3.2 | 1.3.3, 2.4.4 | |
-| spark | io.netty:netty-codec-http2 | GHSA-xpw8-rcwv-8f8p | HIGH | 4.1.96.Final | 4.1.100.Final | |
-| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 |  |
-| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | |
-| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.7.1 | 3.15.0 | |
-| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.7.1 | 3.16.1, 3.18.2, 3.19.2 | |
-| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 |   |
-| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | |
-| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.3.0 | 3.15.0 |  |
-| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.3.0 | 3.16.1, 3.18.2, 3.19.2 | |
-| spark | com.google.code.gson:gson | CVE-2022-25647 | HIGH | 2.2.4 | 2.8.9 | |
-| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4 | |
-| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4.2 | |
-| spark | linux-libc-dev | CVE-2023-4244 | HIGH | 5.4.0-166.183 |  | |
-| spark | linux-libc-dev | CVE-2023-20569 | HIGH | 5.4.0-166.183 |  | |
-| amazon-linux | ca-certificates | CVE-2023-37920 | HIGH | 2021.2.50-72.amzn2.0.7 | 2021.2.50-72.amzn2.0.8 | |
-| amazon-linux | curl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 |   |
-| amazon-linux | curl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
-| amazon-linux | curl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
-| amazon-linux | libcurl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 | |
-| amazon-linux | libcurl | CVE-2023-38545 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 |   |
-| amazon-linux | libcurl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | |
-| amazon-linux | libnghttp2 | CVE-2023-44487 | HIGH | 1.41.0-1.amzn2.0.1 | 1.41.0-1.amzn2.0.4 | |
-| amazon-linux | libssh2 | CVE-2020-22218 | HIGH | 1.4.3-12.amzn2.2.4 | 1.4.3-12.amzn2.2.6 | |
-| amazon-linux | libxml2 | CVE-2023-45322 | HIGH | 2.9.1-6.amzn2.5.8 | 2.9.1-6.amzn2.5.13 | |
-| amazon-linux | python | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | |
-| amazon-linux | python-libs | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | |
-| amazon-linux | vim-data | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-data | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| amazon-linux | vim-minimal | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 |   |
-| amazon-linux | vim-minimal | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | |
-| Ubuntu | libsystemd0 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
-| Ubuntu | libudev1 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | |
-| httpd-alpine | libcrypto3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | |
-| httpd-alpine | libcurl | CVE-2023-28319 | HIGH | 7.88.1-r1 | 8.1.0-r0 | |
-| httpd-alpine | libcurl | CVE-2023-38039 | HIGH | 7.88.1-r1 | 8.3.0 | |
-| httpd-alpine | libssl3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | |
-| httpd-alpine | nghttp2-libs | CVE-2023-35945 | HIGH | 1.51.0-r0 | 1.51.0-r1 | |
-| httpd-alpine | nghttp2-libs | CVE-2023-44487 | HIGH | 1.51.0-r0 | 1.51.0-r2 | |
-| httpd-alpine | perl | CVE-2023-47038 | HIGH | 5.36.0-r0 | 5.36.2-r0 | |
+| Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
+|-|-|-|-|-|-|-|-|
+| amazon-linux | vim-data | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | Buffer overflow | 7.8 |
+| amazon-linux | vim-data | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | use-after-free | 7.8 |
+| amazon-linux | vim-data | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | Buffer overflow | 7.8 |
+| amazon-linux | python | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | Denial of Service | 7.8 |
+| amazon-linux | python-libs | CVE-2022-48565 | HIGH | 2.7.18-1.amzn2.0.6 | 2.7.18-1.amzn2.0.7 | obtain sesitive information and Denial of Service | 7.8 |
+| amazon-linux | vim-data | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | use-after-free | 7.8 |
+| amazon-linux | vim-data | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | integer overflow | 7.8 |
+| amazon-linux | vim-data | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | Buffer overflow | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | buffer overflow | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | use-after-free | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | buffer overflow | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4733 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | use-after-free | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4734 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | integer overflow | 7.8 |
+| amazon-linux | vim-minimal | CVE-2023-4781 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | buffer overflow | 7.8 |
+| amazon-linux | libcurl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 | run out of memory | 7.5 |
+| cassandra | ch.qos.logback:logback-classic | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | Denial of Service | 7.5 |
+| cassandra | ch.qos.logback:logback-core | CVE-2023-6378 | HIGH | 1.2.9 | 1.3.12, 1.4.12 | Denial of Service | 7.5 |
+| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4.2 | resource exhaustion | 7.5 |
+| cassandra | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.13.2.2 | 2.12.7.1, 2.13.4 | resource exhaustion | 7.5 |
+| cassandra | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.1 | 1.1.10.4 | Denial of Service | 7.5 |
+| cassandra | org.yaml:snakeyaml | CVE-2022-25857 | HIGH | 1.26 | 1.31 | Denial of Service | 7.5 |
+| cassandra | github.com/opencontainers/runc | CVE-2023-27561 | HIGH | v1.1.0 | 1.1.5 | Access Control Privilege Escalation | 7.5 |
+| amazon-linux | curl | CVE-2023-38039 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.1 | Run out of memory possible crash | 7.5 |
+| amazon-linux | libnghttp2 | CVE-2023-44487 | HIGH | 1.41.0-1.amzn2.0.1 | 1.41.0-1.amzn2.0.4 | Denial of Service | 7.5 |
+| amazon-linux | libssh2 | CVE-2020-22218 | HIGH | 1.4.3-12.amzn2.2.4 | 1.4.3-12.amzn2.2.6 | application crash | 7.5 |
+| spark | org.apache.mesos:mesos | CVE-2018-1330 | HIGH | 1.4.3 | 1.6.0 | Denial of Service | 7.5 |
+| spark | org.apache.thrift:libthrift | CVE-2020-13949 | HIGH | 0.12.0 | 0.14.0 | Denial of service | 7.5 |
+| spark | org.xerial.snappy:snappy-java | CVE-2023-43642 | HIGH | 1.1.10.3 | 1.1.10.4 | Denial of Service | 7.5 |
+| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.7.7 | 1.11.3 | out of memory error and denial of service | 7.5 |
+| spark | org.apache.avro:avro | CVE-2023-39410 | HIGH | 1.11.2 | 1.11.3 | out of memory error and denial of service | 7.5 |
+| spark | net.minidev:json-smart | CVE-2023-1370 | HIGH | 1.3.2 | 2.4.9 | stack overflow crash software | 7.5 |
+| spark | net.minidev:json-smart | CVE-2021-31684 | HIGH | 1.3.2 | 1.3.3, 2.4.4 | Denial of Service | 7.5 |
+| spark | io.netty:netty-codec-http2 | GHSA-xpw8-rcwv-8f8p | HIGH | 4.1.96.Final | 4.1.100.Final | Denial of Service | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | Denial of Service | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.7.1 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | Denial of Service | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.7.1 | 3.15.0 | execute unauthorized code or commands, read memory, modify memory | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3510 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | Denial of Service | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2022-3509 | HIGH | 3.3.0 | 3.16.3, 3.19.6, 3.20.3, 3.21.7 | Denial of Service | 7.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22570 | HIGH | 3.3.0 | 3.15.0 | execute unauthorized code or commands, read memory, modify memory | 7.5 |
+| spark | com.google.code.gson:gson | CVE-2022-25647 | HIGH | 2.2.4 | 2.8.9 | availiblity attacks | 7.5 |
+| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42004 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4 | resource exhaustion | 7.5 |
+| spark | com.fasterxml.jackson.core:jackson-databind | CVE-2022-42003 | HIGH | 2.12.7 | 2.12.7.1, 2.13.4.2 | resource exhaustion | 7.5 |
+| httpd-alpine | libcrypto3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | loss of confidentiality | 7.5 |
+| httpd-alpine | libcurl | CVE-2023-28319 | HIGH | 7.88.1-r1 | 8.1.0-r0 | use-after-free | 7.5 |
+| httpd-alpine | libcurl | CVE-2023-38039 | HIGH | 7.88.1-r1 | 8.3.0 | out of memory crash | 7.5 |
+| httpd-alpine | libssl3 | CVE-2023-5363 | HIGH | 3.0.8-r3 | 3.0.12-r0 | loss of confidentiality | 7.5 |
+| httpd-alpine | nghttp2-libs | CVE-2023-35945 | HIGH | 1.51.0-r0 | 1.51.0-r1 | Denial of Service | 7.5 |
+| httpd-alpine | nghttp2-libs | CVE-2023-44487 | HIGH | 1.51.0-r0 | 1.51.0-r2 | Denial of Service | 7.5 |
+| amazon-linux | vim-data | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | out-of-bounds write | 7.3 |
+| amazon-linux | vim-minimal | CVE-2023-4735 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | out of bounds wirte | 7.3 |
+| amazon-linux | vim-data | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | crash software and possible code execution | 7.0 |
+| amazon-linux | vim-minimal | CVE-2023-4752 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | crash software and possible code execution | 7.0 |
+| spark | linux-libc-dev | CVE-2023-4244 | HIGH | 5.4.0-166.183 |  | use-after-free kernel information leak | 7.0 |
+| httpd-alpine | perl | CVE-2023-47038 | HIGH | 5.36.0-r0 | 5.36.2-r0 | regular expression buffer overflow | 7.0 |
+| amazon-linux | libxml2 | CVE-2023-45322 | HIGH | 2.9.1-6.amzn2.5.8 | 2.9.1-6.amzn2.5.13 | use-after-free memory attack | 5.9 |
+| spark | org.apache.thrift:libthrift | CVE-2019-0205 | HIGH | 0.12.0 | 0.13.0 | endless loop | 5.9 |
+| spark | org.codehaus.jackson:jackson-mapper-asl | CVE-2019-10172 | HIGH | 1.9.13 |  | data integrity | 5.9 |
+| spark | linux-libc-dev | CVE-2023-20569 | HIGH | 5.4.0-166.183 |  | potential infromation disclosure | 5.6 |
+| amazon-linux | vim-data | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | pointer dereference causes crash | 5.5 |
+| amazon-linux | vim-minimal | CVE-2021-3236 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | pointer dereference | 5.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.7.1 | 3.16.1, 3.18.2, 3.19.2 | Denial of Service | 5.5 |
+| spark | com.google.protobuf:protobuf-java | CVE-2021-22569 | HIGH | 3.3.0 | 3.16.1, 3.18.2, 3.19.2 | Denial of Service | 5.5 |
+| Ubuntu | libsystemd0 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | OS Crash | 5.5 |
+| Ubuntu | libudev1 | CVE-2021-33910 | HIGH | 237-3ubuntu10.33 | 237-3ubuntu10.49 | OS Crash | 5.5 |
 
 ### 3.3 Medium-Priority Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
@@ -431,6 +428,8 @@ made.
 ### 3.4 Low-Priority Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification |
 |-|-|-|-|-|-|-|
+| amazon-linux | curl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | specific conditions needed for cookie injection risk of harm low 3.7 |
+| amazon-linux | libcurl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | cookie injection 3.7 |
 | cassandra | coreutils | CVE-2016-2781 | LOW | 8.30-3ubuntu2 |  |   |
 | cassandra | gpgv | CVE-2022-3219 | LOW | 2.2.19-3ubuntu2.2 |  | |
 | cassandra | libc-bin | CVE-2016-20013 | LOW | 2.31-0ubuntu9.12 |  | |
@@ -656,7 +655,7 @@ made.
 | ubuntu | util-linux | CVE-2018-7738 | LOW | 2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | |
 | httpd-alpine | libcurl | CVE-2023-28322 | LOW | 7.88.1-r1 | 8.1.0-r0 | |
 | httpd-alpine | libcurl | CVE-2023-38546 | LOW | 7.88.1-r1 | 8.4.0-r0 | |
-
+| amazon-linux | ca-certificates | CVE-2023-37920 | HIGH | 2021.2.50-72.amzn2.0.7 | 2021.2.50-72.amzn2.0.8 | certificates have been removed as of 07.22.2023 |
 
 ## 4. Remediation Plan
 ### 4.1 Action Items
@@ -664,7 +663,7 @@ Outline specific actions to remediate each critical vulnerability. Include detai
 Asset
 Package
 Action Items
-
+second sever vuln implementing a whitelist approach that will mitigate these vulnerabilities
 ### 4.2 Responsible Teams
 Identify the teams responsible for executing each action item.
 USE A RACI TABLE

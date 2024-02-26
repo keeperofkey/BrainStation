@@ -1,4 +1,10 @@
 # Vulnerability Remediation Plan Template
+## Table of Contents
+1. [Asset Identification and Documentation](#1-asset-identification-and-documentation)
+2. [Prioritization of Assets](#2-prioritization-of-assets)
+3. [Prioritization of Vulnerabilities](#3-prioritization-of-vulnerabilities)
+4. [Vulnerability Remediation](#4-vulnerability-remediation)
+
 ## 1. Asset Identification and Documentation
 ### 1.1 Asset Inventory
 - Asset Name: httpd-alpine
@@ -21,8 +27,8 @@
   - Type: Operating System
   - Owner: AWS
   - Function: Operating system for EC2 server
+
 ## 2. Prioritization of Assets
-Prioritize assets based on their criticality to business functions and potential impact on the enterprise in case of a security breach.
 - Critical Assets: 
   - cassandra due to impact on patient data
   - amazon-linux due to impact on patient records
@@ -32,12 +38,11 @@ Prioritize assets based on their criticality to business functions and potential
 - Medium Priority Assets: 
   - httpd-alpine due to impact on availability and scheduling
 ## 3. Prioritization of Vulnerabilities
-Rank vulnerabilities based on their severity, potential impact, and exploitability. Also consider the asset prioritization when ranking vulnerabilities. Make note of any assumptions 
-made.
-
+Rank vulnerabilities based on their severity, potential impact, and exploitability. Also consider the asset prioritization when ranking vulnerabilities. Make note of any assumptions made.
+Using our prioritization of assets in concert with the Common Vulnerability Scoring System (CVSS) we are able to rank the vulnerabilities based on their severity, potential impact, and exploitability. We used Red Hat CVSS scores and NIST CVSS scores to try to maintain comparablity. We manually sorted the vulnerabilities to ensure that no critical vulnerabilities are missed. There are some discrepancy in CVSS scores and scan severity we chose to air on the side of caution for better security posture.
 ### 3.1 Critical Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
-|-|-|-|-|-|-|-|-|
+|---|---|---|---|---|---|---|---|
 | cassandra | org.yaml:snakeyaml | CVE-2022-1471 | HIGH | 1.26 | 2.0 | unauthenticated remote code execution | 9.8 |
 | ubuntu | dpkg | CVE-2022-1664 | MEDIUM | 1.19.0.5ubuntu2.3 | 1.19.0.5ubuntu2.4 | directory traversal | 9.8 |
 | spark | org.apache.derby:derby | CVE-2022-46337 | CRITICAL | 10.14.2.0 | 10.17.1.0 | LDAP injection vulnerability, bypass authentication | 9.8 |
@@ -58,7 +63,7 @@ made.
 
 ### 3.2 High-Priority Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
-|-|-|-|-|-|-|-|-|
+|---|---|---|---|---|---|---|---|
 | amazon-linux | vim-data | CVE-2023-4738 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | Buffer overflow | 7.8 |
 | amazon-linux | vim-data | CVE-2023-4750 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | use-after-free | 7.8 |
 | amazon-linux | vim-data | CVE-2023-4751 | HIGH | 2:9.0.1592-1.amzn2.0.1 | 2:9.0.1882-1.amzn2.0.1 | Buffer overflow | 7.8 |
@@ -131,7 +136,7 @@ made.
 
 ### 3.3 Medium-Priority Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
-|-|-|-|-|-|-|-|-|
+|---|---|---|---|---|---|---|---|
 | cassandra | libgnutls30 | CVE-2023-5981 | MEDIUM | 3.6.13-2ubuntu1.8 | 3.6.13-2ubuntu1.9 | response time discrepancy | 5.9 |
 | cassandra | libgssapi-krb5-2 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | Denial of Service | 6.5 |
 | cassandra | libk5crypto3 | CVE-2023-36054 | MEDIUM | 1.17-6ubuntu4.3 | 1.17-6ubuntu4.4 | denial of service | 6.5 |
@@ -428,7 +433,7 @@ made.
 
 ### 3.4 Low-Priority Vulnerabilities
 | Asset | Package | Vulnerability ID | Severity | Installed Version | Fixed Version | Justification | CVSS |
-|-|-|-|-|-|-|-|-|
+|---|---|---|---|---|---|---|---|
 | amazon-linux | curl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | specific conditions needed for cookie injection risk of harm low | 3.7 |
 | amazon-linux | libcurl | CVE-2023-38546 | HIGH | 8.0.1-1.amzn2.0.1 | 8.3.0-1.amzn2.0.4 | cookie injection | 3.7 |
 | cassandra | coreutils | CVE-2016-2781 | LOW | 8.30-3ubuntu2 | | privilege bypass | 6.2 |
@@ -672,3 +677,11 @@ Patch Management Team: [Specify responsibilities]
 Network Security Team: [Specify responsibilities]
 Application Security Team: [Specify responsibilities]
 
+<style>
+.markdown-body { 
+  max-width: 100%;
+}
+td {
+  max-width: 1em;
+}
+</style>

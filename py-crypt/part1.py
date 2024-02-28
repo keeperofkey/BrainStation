@@ -17,7 +17,7 @@ def set_len(key: str) -> str:
         return key
 
 
-def calc_offset(key: str, message: str) -> dict:
+def calc_offset(message: str, key: str) -> dict:
     key = set_len(key)
     key_arr = []
     message_arr = []
@@ -38,7 +38,7 @@ def calc_offset(key: str, message: str) -> dict:
 
 def encrypt(message: str, key: str) -> str:
     # apply Vigenere cipher to message using Key
-    off_dict = calc_offset(key, message)
+    off_dict = calc_offset(message, key)
     new_msg = ""
     for row in range(len(message)):
         new_msg += string.ascii_lowercase[
@@ -49,7 +49,7 @@ def encrypt(message: str, key: str) -> str:
 
 def decrypt(message: str, key: str) -> str:
     # apply Vigenere cipher to message using Key
-    off_dict = calc_offset(key, message)
+    off_dict = calc_offset(message, key)
     new_msg = ""
     for row in range(len(message)):
         new_msg += string.ascii_lowercase[
@@ -59,8 +59,15 @@ def decrypt(message: str, key: str) -> str:
 
 
 if __name__ == "__main__":
+    choice = input("Encrypt(1) or Decrypt(2): ")
     message = input("Enter message: ")
     key = input("Enter key: ")
+    if choice == "1":
+        print("Encrypting...")
+        print(encrypt(message, key))
+    elif choice == "2":
+        print("Decrypting...")
+        print(decrypt(message, key))
     encrypt_message = encrypt(message, key)
     print(encrypt(message, key))
     print(decrypt(encrypt_message, key))

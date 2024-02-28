@@ -668,15 +668,7 @@ Using our prioritization of assets in concert with the Common Vulnerability Scor
 ## 4. Remediation Plan
 
 ### 4.1 Action Items
-
-- For cassandra:
-  - Upgrade to latest patched version
-  - Enable authentication and access controls 
-  - Configure TLS for encryption in transit
-- For amazon-linux:
-  - Apply latest OS security patches
-  - Disable unnecessary services
-  - Enable audit logging and monitoring
+Cassandra requires an upgrade to the latest patched version for optimal security. Authentication and access controls should be enabled to restrict unauthorized access. TLS should be configured for encryption in transit to safeguard sensitive data. For Amazon Linux, applying the latest OS security patches is crucial. Unnecessary services should be disabled to improve security posture. Audit logging and monitoring should be enabled to track and investigate suspicious activities. Httpd-alpine requires an upgrade to the latest patched version for optimal security and firewall and configuration rules should be written for spark. The scans illustrate the importance of remaining up to date as many vulnerabilities could be solved with proper patch management.
 
 | Asset | Package | Action Items |
 |---|---|---|
@@ -713,6 +705,9 @@ Using our prioritization of assets in concert with the Common Vulnerability Scor
 
 <style>
 .markdown-body { 
+}
+ul {
+  list-style-type: '- ';
 }
 table {
   font-size: 10px;

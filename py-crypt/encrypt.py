@@ -15,6 +15,8 @@ def set_len(key: str) -> str:
         return key
     elif len(message) == len(key):
         return key
+    else:
+        return "error"
 
 
 def calc_offset(message: str, key: str) -> dict:
@@ -69,5 +71,3 @@ if __name__ == "__main__":
         print("Decrypting...")
         print(decrypt(message, key))
     encrypt_message = encrypt(message, key)
-    print(encrypt(message, key))
-    print(decrypt(encrypt_message, key))

@@ -1,5 +1,12 @@
 # Encryption Report
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Methodology](#methodology)
+- [TLS Handshake Analysis](#tls-handshake-analysis)
+- [Packet Details](#packet-details)
+
 ## Introduction
 
 The objective of this report is to share the timestamp and details of the ClientHello, ServerHello, and the Key Exchange messages exchanged during the TLS handshake. It will explain the purpose and significance of each message in the TLS handshake process. The report will also identify the source and destination IP addresses and port numbers for each packet in the handshake. Finally, it will confirm that packets are encrypted after the handshake is completed.

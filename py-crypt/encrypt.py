@@ -3,6 +3,12 @@
 import string
 
 
+def strip_ws(message: str, key: str) -> str:
+    message = message.replace(" ", "")
+    key = key.replace(" ", "")
+    return message, key
+
+
 def set_len(key: str) -> str:
     if len(message) > len(key):
         key = key * (len(message) // len(key))
@@ -64,6 +70,7 @@ if __name__ == "__main__":
     choice = input("Encrypt(1) or Decrypt(2): ")
     message = input("Enter message: ")
     key = input("Enter key: ")
+    message, key = strip_ws(message, key)
     if choice == "1":
         print("Encrypting...")
         print(encrypt(message, key))

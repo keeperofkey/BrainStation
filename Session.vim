@@ -13,11 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 Documents/BrainStation/reports/unit_3/spendsmart_p1.md
-badd +0 Documents/BrainStation/reports/unit_3/spendsmart.md
+badd +2 Documents/BrainStation/reports/unit_3/spendsmart_p1.md
+badd +1 Documents/BrainStation/reports/unit_3/spendsmart.md
+badd +0 ~
+badd +115 .config/nvim/lua/kickstart/plugins/cmp.lua
+badd +26 .config/nvim/lua/keymaps.lua
 argglobal
 %argdel
-$argadd .
+$argadd ~
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit Documents/BrainStation/reports/unit_3/spendsmart_p1.md
@@ -32,11 +35,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
+let s:l = 2 - ((1 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 2
 normal! 0
 if exists(':tcd') == 2 | tcd ~/Documents/BrainStation | endif
 tabnext
@@ -59,7 +62,7 @@ normal! zt
 keepjumps 1
 normal! 018|
 if exists(':tcd') == 2 | tcd ~/Documents/BrainStation | endif
-tabnext 1
+tabnext 2
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

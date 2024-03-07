@@ -3,13 +3,46 @@
 import string
 
 
-def strip_ws(message: str, key: str) -> str:
+# part 1
+def sec_key():
+    words = [
+        "hello",
+        "world",
+        "encryption",
+        "someonecracedmypassword",
+        "poorsecurityhurtseveryone",
+    ]
+    result = []
+    for word in words:
+        result.append(encrypt(word, "secretkey"))
+
+    return result
+
+
+def bs():
+    words = [
+        "srnabepakm",
+        "ciubrxhrvm",
+        "cvsbcjtcmqqrt",
+        "qfozfwvukqhlilrbfwoekgcaf",
+        "uyeyhavkuzcjowofwmfplwjrskhmyssywwu",
+    ]
+    result = []
+    for word in words:
+        result.append(decrypt(word, "brainstation"))
+
+    return result
+
+
+# clean input
+def strip_ws(message: str, key: str) -> tuple:
     message = message.replace(" ", "")
     key = key.replace(" ", "")
     return message, key
 
 
-def set_len(key: str) -> str:
+# match length of key and message
+def set_len(message: str, key: str) -> str:
     if len(message) > len(key):
         key = key * (len(message) // len(key))
         if len(message) % len(key) != 0:
@@ -25,8 +58,9 @@ def set_len(key: str) -> str:
         return "error"
 
 
+# find alphabetical index
 def calc_offset(message: str, key: str) -> dict:
-    key = set_len(key)
+    key = set_len(message, key)
     key_arr = []
     message_arr = []
     for i in range(len(key)):
@@ -44,8 +78,8 @@ def calc_offset(message: str, key: str) -> dict:
     return mydict
 
 
+# use alphabetical index to encrypt
 def encrypt(message: str, key: str) -> str:
-    # apply Vigenere cipher to message using Key
     off_dict = calc_offset(message, key)
     new_msg = ""
     for row in range(len(message)):
@@ -55,26 +89,35 @@ def encrypt(message: str, key: str) -> str:
     return new_msg
 
 
+# use alphabetical index to decrypt
 def decrypt(message: str, key: str) -> str:
-    # apply Vigenere cipher to message using Key
     off_dict = calc_offset(message, key)
     new_msg = ""
     for row in range(len(message)):
         new_msg += string.ascii_lowercase[
-            (off_dict["message"][row] - off_dict["key"][row]) % 26
+            # order is important
+            (off_dict["message"][row] - off_dict["key"][row])
+            % 26
         ]
     return new_msg
 
 
+# capture user input
 if __name__ == "__main__":
-    choice = input("Encrypt(1) or Decrypt(2): ")
-    message = input("Enter message: ")
-    key = input("Enter key: ")
-    message, key = strip_ws(message, key)
-    if choice == "1":
-        print("Encrypting...")
-        print(encrypt(message, key))
-    elif choice == "2":
-        print("Decrypting...")
-        print(decrypt(message, key))
-    encrypt_message = encrypt(message, key)
+    part = input("Part 1 or 2: ")
+    if part == "1":
+        print(sec_key(), bs())
+    elif part == "2":
+        choice = input("Encrypt(1) or Decrypt(2): ")
+        message = input("Enter message: ")
+        key = input("Enter key: ")
+        message, key = strip_ws(message, key)
+        if choice == "1":
+            print("Encrypting...")
+            print(encrypt(message, key))
+        elif choice == "2":
+            print("Decrypting...")
+            print(decrypt(message, key))
+        encrypt_message = encrypt(message, key)
+    else:
+        print("error")

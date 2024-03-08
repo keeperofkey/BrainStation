@@ -1,3 +1,11 @@
+> \[!NOTE\]
+> Basic report format
+> Executive Summary
+> Methodology
+> Results
+> Recommendations
+> Appendix
+
 # Case Brief
 
 ### Company Profile:
@@ -240,56 +248,132 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
 
 ## Analysis phase:
 
-- How is sensitive data identified and classified?
-- What measures are in place to protect different categories of data?
-- What is the threat model of the application, and how does it change with the new feature? Are least privilege principles considered when determining user access levels?
+- Sensitive data such as financial information, account details, passwords, etc. are identified and classified based on data classification guidelines. Fields containing such data are tagged accordingly in the database schema.
+
+- Encryption mechanisms like AES-256 are used to encrypt sensitive fields before storage. Data in transit is protected via TLS. Access controls restrict access to sensitive data. Logs and audits track access.
+
+- Threat model focuses on risks like data breaches, account takeover, transaction fraud etc. New feature increases attack surface and data exposure.
+
+- Role based access control limits access to only required features. Principle of least privilege followed in authorization design.
 
 ## Design phase
 
-- What security controls are integrated into the overall system architecture?
-- Are secure design principles followed in the creation of system components?
-- How is input validation implemented to prevent common security vulnerabilities?
-- How is encryption integrated into the design?
+- Multi-factor authentication for user login
+- Role-based access controls for restricting access
+- Encryption of sensitive data in transit and at rest using AES-256
+- Input validation and sanitization on all user-supplied data
+- Secure logging of all transactions and user activities
+- Regular security audits and penetration testing
 
 ## Development phase:
 
-- Is there a code review process that includes security considerations?
-- Are automated code analysis tools used to identify potential security vulnerabilities?
-- How are the results of code analysis tools addressed and remediated?
-- Is there a process for scanning and monitoring third-party dependencies for security vulnerabilities?
-- How are vulnerabilities in external libraries and frameworks addressed?
-- How is code version control and access control implemented to prevent unauthorized access or code tampering?
+- Yes, all code changes go through peer review before being merged, with a focus on identifying security issues.
+
+- Yes, static and dynamic analysis tools like bandit, semgrep, and Veracode are used to scan code for vulnerabilities.
+
+- Results from scans are tracked in our issue tracker. They must be remediated or have an accepted risk before code can be deployed.
+
+- Third party libraries are scanned regularly with tools like dependabot. New vulnerabilities generate alerts to be fixed.
+
+- When vulnerabilities are found in external code, we update to patched versions ASAP. If no patch is available, mitigations are put in place.
+
+- Git is used for version control. Access is restricted using SSH keys and principle of least privilege. Commits are signed and logged.
 
 ## Testing phase:
 
-- Are comprehensive security tests (SAST, DAST, Penetration testing) conducted during the testing phase?
-- Is security testing automated to ensure consistent and repeatable results?
-- How quickly are identified vulnerabilities remediated, and is there a defined process for prioritizing and addressing them?
+- Yes, we run SAST, DAST, and manual penetration tests during development and before production releases.
+
+- We use tools like OWASP ZAP and Burp Suite to automate security scanning and testing. Tests run daily/weekly and on code changes.
+
+- All vulnerabilities are tracked in our issue tracker. Critical ones are fixed immediately, others within 30 days based on severity. Devs are assigned tickets to fix, which are then re-tested.
 
 ## Implementation phase:
 
-- Are deployment scripts and configurations reviewed for security considerations?
-- Is there a configuration management process in place to maintain the security of deployed systems?
-- How are changes to production configurations reviewed and approved?
-- Is there a well-defined incident response plan for security incidents that may occur during deployment?
+- Yes, infrastructure as code and deployment scripts are reviewed as part of our code review process.
+
+- We use tools like Ansible and Terraform to manage configurations. Access is restricted and changes are reviewed.
+
+- Changes to production must go through our change management process. Devs submit tickets, changes are approved by infosec and ops teams.
+
+- Our incident response plan covers detection, containment, eradication and recovery from incidents. On-call staff are trained to execute the plan.
 
 ## Maintenance phase
 
-- Is there a process for timely applying security patches to address known vulnerabilities?
-- Is there continuous monitoring for security events and anomalies during the maintenance phase?
-- How are logs reviewed, and what actions are taken based on security events?
-- Based on your analysis, prepare a report that summarizes the following:
+Security Patch Management
+
+- Critical security patches are applied within 2 weeks of release
+- Non-critical patches are applied within 1 month
+- Patching is automated via tools like Ansible, Chef, SCCM where possible
+- Patch compliance is reported weekly to infosec team
+
+Monitoring and Logging
+
+- Network traffic and systems monitored 24/7 by IDS for anomalies
+- Logs aggregated into SIEM and analyzed for security events
+- Infosec reviews logs and alerts daily and responds per incident plans
+
+Summary
+
+- Secure SDLC practices in place for code reviews, testing, dependency scanning
+- Production systems hardened and closely monitored
+- Processes for incident response, change control, vulnerability management
+- Some reliance on manual processes instead of automation
+- Overall good security posture but could improve with more automation
 
 ## Security Requirements:
 
-- Enumerates and explains each security requirement.
-- Evaluates the clarity and specificity of each requirement.
-- Identifies potential gaps or areas where the requirements may be strengthened.
-- Provides recommendations for improvement.
+- Requirements lack specificity in several areas:
+
+  - Access control is mentioned but no details on implementation
+  - Data encryption required but no cipher suites or algorithms specified
+  - Input validation required but no validation methods specified
+  - Error handling required but no specifics on handling different error conditions
+
+- Several security aspects are not covered:
+
+  - Session management for authenticated users is not mentioned
+  - Network security controls like firewalls are not specified
+  - Auditing and logging requirements are not enumerated
+
+- Overall the requirements provide a good starting point but lack important details. Recommend enhancing requirements with:
+
+  - Specific access control models like RBAC
+  - Encryption algorithms like AES-256 and cipher suites to use
+  - Input validation methods like whitelist validation, size limits
+  - Handling for various error conditions like network errors, bad data
+  - Session timeout settings and renewal requirements
+  - Network security controls like firewalls and filtering
+  - Auditing and logging specifics like log retention and monitoring
+
+- Well defined requirements will ensure shared understanding and close potential gaps.
 
 ## SDLC Process:
 
-- Summarizes the overall security posture of the SDLC process.
-- Highlights key strengths and areas of improvement identified during the assessment.
-- Provides a list of critical findings in any phase of the SDLC
-- Proposes strategies for improving the SDLC
+SDLC Security Assessment Summary
+
+Key Strengths:
+
+- Secure design principles followed for system architecture
+- Comprehensive security testing conducted including SAST, DAST, penetration testing
+- Input validation implemented to prevent common vulnerabilities
+- Encryption used for data protection
+
+Areas for Improvement:
+
+- Lack of automated security scanning and testing
+- Slow remediation times for identified vulnerabilities
+- Minimal use of configuration management for production systems
+
+Critical Findings:
+
+- Unpatched systems and software in production due to slow patching cadence
+- SQL injection vulnerabilities identified during penetration testing not yet addressed
+- Hardcoded passwords and insecure configurations identified in source code
+
+Recommendations:
+
+- Increase automation in testing and scanning to ensure consistency
+- Improve vulnerability management process to accelerate remediation
+- Implement configuration management tools for production systems
+- Enforce production deployment checklist to ensure security controls applied
+- Conduct security training for developers to build secure coding skills

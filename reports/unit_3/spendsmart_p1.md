@@ -24,10 +24,14 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
 
 - Fetch and integrate data from various external sources, including credit card and utilities companies, leveraging token-based authentication.
 - Utilize encryption protocols during data transmission to ensure the confidentiality and integrity of the transferred data.
-  Data Parsing and Normalization:
+
+#### Data Parsing and Normalization:
+
 - Develop algorithms to parse and normalize data from diverse sources, ensuring consistency in formatting and structure.
 - Implement error handling mechanisms to address discrepancies and anomalies in the incoming data.
-- User Authentication and Authorization:
+
+#### User Authentication and Authorization:
+
 - Integrate multi factor authentication mechanisms to protect user portals, ensuring that only authorized users can access their financial data.
 - Implement role-based access controls for admins/staff engineers to restrict access to specific features and functionalities based on user roles.
 
@@ -55,7 +59,6 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
 #### User Education and Communication:
 
 - Implement user-friendly interfaces and informative tooltips to guide users on secure financial practices.
-
 - Communicate security features to users, fostering a sense of trust in the application.
 
 ## Database Schema:
@@ -236,7 +239,6 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
     - Jira Service Management (formerly Jira Service Desk): For managing support tickets.
     - or Datadog: For monitoring and performance management.
     - Snyk: For continuous code quality inspection.
-    -
 
 ## Planning phase:
 
@@ -259,43 +261,80 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
 ## Design phase
 
 - Multi-factor authentication for user login
+
 - Role-based access controls for restricting access
+
 - Encryption of sensitive data in transit and at rest using AES-256
-- Input validation and sanitization on all user-supplied data
+
+- Utilized encryption protocols during data transmission and storage.
+
+- Employ proper key management.
+
+- Input validation and sanitization not mentioned and should be conducted on all user-supplied data
+
 - Secure logging of all transactions and user activities
+
 - Regular security audits and penetration testing
 
 ## Development phase:
 
-- Yes, all code changes go through peer review before being merged, with a focus on identifying security issues.
+- All code changes go through peer review before being merged.
 
-- Yes, static and dynamic analysis tools like bandit, semgrep, and Veracode are used to scan code for vulnerabilities.
+- Selenium is used for browser based testing
 
-- Results from scans are tracked in our issue tracker. They must be remediated or have an accepted risk before code can be deployed.
+- Snyk not used dependency monitoring and code scanning during development.
 
-- Third party libraries are scanned regularly with tools like dependabot. New vulnerabilities generate alerts to be fixed.
+- automation focuses on integration not security
 
-- When vulnerabilities are found in external code, we update to patched versions ASAP. If no patch is available, mitigations are put in place.
+- Git is used for version control. Branching utilized for collaboration. MFA is used for login(assumed) more details not provided.
 
-- Git is used for version control. Access is restricted using SSH keys and principle of least privilege. Commits are signed and logged.
+- Jira used for issue tracking.
 
 ## Testing phase:
 
-- Yes, we run SAST, DAST, and manual penetration tests during development and before production releases.
+- Are comprehensive security tests (SAST, DAST, Penetration testing) conducted during the testing phase?
 
-- We use tools like OWASP ZAP and Burp Suite to automate security scanning and testing. Tests run daily/weekly and on code changes.
+- Is security testing automated to ensure consistent and repeatable results?
 
-- All vulnerabilities are tracked in our issue tracker. Critical ones are fixed immediately, others within 30 days based on severity. Devs are assigned tickets to fix, which are then re-tested.
+- How quickly are identified vulnerabilities remediated, and is there a defined process for prioritizing and addressing them?
+
+- It is unclear from the information provided if comprehensive security testing is conducted during the testing phase. More details on the testing methodology and scope would be needed.
+
+- There is no mention of automation around security testing. This would need to be clarified.
+
+- The process for remediating vulnerabilities is not defined. More information is needed on how vulnerabilities are prioritized, tracked and remediated.
 
 ## Implementation phase:
 
-- Yes, infrastructure as code and deployment scripts are reviewed as part of our code review process.
+- Are deployment scripts and configurations reviewed for security considerations?
 
-- We use tools like Ansible and Terraform to manage configurations. Access is restricted and changes are reviewed.
+- Is there a configuration management process in place to maintain the security of deployed systems?
 
-- Changes to production must go through our change management process. Devs submit tickets, changes are approved by infosec and ops teams.
+- How are changes to production configurations reviewed and approved?
 
-- Our incident response plan covers detection, containment, eradication and recovery from incidents. On-call staff are trained to execute the plan.
+- Is there a well-defined incident response plan for security incidents that may occur during deployment?
+
+- Maintenance phase
+
+- Is there a process for timely applying security patches to address known vulnerabilities?
+
+- Is there continuous monitoring for security events and anomalies during the maintenance phase?
+
+- How are logs reviewed, and what actions are taken based on security events?
+
+- It is unclear if deployment scripts and configurations are reviewed for security based on the information provided.
+
+- There are no details on configuration management processes for deployed systems.
+
+- The process for reviewing and approving changes to production is not defined.
+
+- An incident response plan for deployment is not mentioned.
+
+- There are no details on security patch management processes.
+
+- Continuous monitoring during maintenance is not mentioned.
+
+- The log review process and actions from security events are undefined.
 
 ## Maintenance phase
 

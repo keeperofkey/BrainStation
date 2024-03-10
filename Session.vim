@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~
+cd ~/Documents/BrainStation
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,17 +13,30 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +2 Documents/BrainStation/reports/unit_3/spendsmart_p1.md
-badd +1 Documents/BrainStation/reports/unit_3/spendsmart.md
-badd +0 ~
-badd +115 .config/nvim/lua/kickstart/plugins/cmp.lua
-badd +26 .config/nvim/lua/keymaps.lua
+badd +75 reports/unit_3/spendsmart_report.md
+badd +343 reports/unit_3/spendsmart_p1.md
 argglobal
 %argdel
-$argadd ~
-tabnew +setlocal\ bufhidden=wipe
-tabrewind
-edit Documents/BrainStation/reports/unit_3/spendsmart_p1.md
+$argadd .
+edit reports/unit_3/spendsmart_report.md
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 145 + 78) / 156)
+exe 'vert 2resize ' . ((&columns * 10 + 78) / 156)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -35,40 +48,47 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 23) / 46)
+let s:l = 49 - ((4 * winheight(0) + 35) / 71)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
+keepjumps 49
+normal! 0367|
+wincmd w
+argglobal
+if bufexists(fnamemodify("reports/unit_3/spendsmart_p1.md", ":p")) | buffer reports/unit_3/spendsmart_p1.md | else | edit reports/unit_3/spendsmart_p1.md | endif
+if &buftype ==# 'terminal'
+  silent file reports/unit_3/spendsmart_p1.md
+endif
+balt reports/unit_3/spendsmart_report.md
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 7 - ((0 * winheight(0) + 35) / 71)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 7
 normal! 0
-if exists(':tcd') == 2 | tcd ~/Documents/BrainStation | endif
-tabnext
-edit ~/Documents/BrainStation/reports/unit_3/spendsmart.md
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 1
-normal! 018|
-if exists(':tcd') == 2 | tcd ~/Documents/BrainStation | endif
-tabnext 2
+wincmd w
+exe 'vert 1resize ' . ((&columns * 145 + 78) / 156)
+exe 'vert 2resize ' . ((&columns * 10 + 78) / 156)
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

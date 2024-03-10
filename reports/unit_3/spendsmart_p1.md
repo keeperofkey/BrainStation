@@ -338,26 +338,13 @@ The SpendSmart digital budgeting app is designed to empower customers with effic
 
 ## Maintenance phase
 
-Security Patch Management
+- No specific process for patching vulnerabilities is mentioned.
 
-- Critical security patches are applied within 2 weeks of release
-- Non-critical patches are applied within 1 month
-- Patching is automated via tools like Ansible, Chef, SCCM where possible
-- Patch compliance is reported weekly to infosec team
+- Logs are stored securely with access controls and encryption, indicating established protections.
 
-Monitoring and Logging
+- Network traffic and systems are monitored 24/7 by IDS, showing continuous monitoring is in place.
 
-- Network traffic and systems monitored 24/7 by IDS for anomalies
-- Logs aggregated into SIEM and analyzed for security events
-- Infosec reviews logs and alerts daily and responds per incident plans
-
-Summary
-
-- Secure SDLC practices in place for code reviews, testing, dependency scanning
-- Production systems hardened and closely monitored
-- Processes for incident response, change control, vulnerability management
-- Some reliance on manual processes instead of automation
-- Overall good security posture but could improve with more automation
+- Infosec reviewing logs and responding per incident plans provides defined actions based on log analysis.
 
 ## Security Requirements:
 

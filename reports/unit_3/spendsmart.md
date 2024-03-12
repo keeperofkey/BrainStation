@@ -50,33 +50,21 @@ DELETE FROM credit_card_statements WHERE amount < 10;
 ![SQL Querry](../../imgs/sql7.png)
 
 ```sql
-/* select columns set alias */
 SELECT u.user_id, u.username, c.category_name AS travel_category, SUM(e.amount) AS total_travel_expense
 FROM user AS u
-
-/* join tables */
 INNER JOIN user_expenses AS e ON u.user_id = e.user_id
 INNER JOIN budget_categories AS c ON e.category_id = c.budget_category_id
-
-/* filter */
 WHERE c.category_name LIKE 'Travel'
-
-/* group results */
 GROUP BY u.user_id, u.username, c.category_name
 ```
 
 ![SQL Querry](../../imgs/sql8.png)
 
 ```sql
-/* select columns set alias */
 SELECT u.username, c.budget_limit, c.category_name, SUM(e.amount), c.budget_limit - SUM(e.amount) AS total_health_expense_remaining
 FROM user_expenses AS e 
-
-/* join tables */
 INNER JOIN user AS u ON u.user_id = e.user_id
 INNER JOIN budget_categories AS c ON e.category_id = c.budget_category_id
-
-/* filter */
 WHERE u.username = 'rhian_thompson-russel' AND e.category_id = 16 AND e.expense_date LIKE '2023-03%'
 ```
 

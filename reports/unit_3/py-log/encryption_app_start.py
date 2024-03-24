@@ -6,11 +6,6 @@ import base64
 import argparse
 import logging
 
-# Set up logging
-logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-
 
 def derive_key(key):
     # Derive a 32-byte (256-bit) key using PBKDF2
@@ -58,8 +53,6 @@ def main():
 
     args = parser.parse_args()
 
-    logging.info("Starting encryption/decryption")
-
     if args.mode == "encrypt":
         if not args.plaintext or not args.key:
             print("Error: Both plaintext and key are required for encryption.")
@@ -73,8 +66,6 @@ def main():
             return
         decrypted_text = decrypt(args.plaintext, args.key)
         print(f"Decrypted Text: {decrypted_text}")
-
-    logging.info("Finished encryption/decryption")
 
 
 if __name__ == "__main__":

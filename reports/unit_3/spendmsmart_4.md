@@ -244,7 +244,7 @@ Cyber Security Incident Response Team (CSIRT) members are responsible for:
 | Card Acquirer Service | First Data | Sarah Lee | Vice President | 555-1415 | slee@firstdata.com |
 | Cyber Insurance Provider | Chubb | Tom Davis | Claims Adjuster | 555-1617 | tdavis@chubb.com |
 | Ransomware Decryption Service Provider | Coveware | Chris Miller | Lead Analyst | 555-1819 | cmiller@coveware.com |
-| Law Enforcement (local) | Springfield Police Department | Mike Thompson | Detective | 555-2021 | mthompson@springfieldpd.gov |
+| Law Enforcement (local) | Springfield Police Department | Mike Thompson | Detective | 555-2021 | mthompson@spfpd.gov |
 | Law Enforcement (federal) | FBI | Susan Martinez | Special Agent | 555-2223 | smartinez@fbi.gov |
 
 ## OTHER STAKEHOLDER CONTACTS
@@ -300,28 +300,28 @@ The CSIRT will consider the available information to determine the known magnitu
 <th>Action</th>
 </tr>
 
-<tr style="background-color:#9e372f">
+<tr style="background-color:red;color:white">
 <td>1 – Critical</td>
 <td>Data loss, Malware</td>
 <td>Widespread and/or with critical servers or data loss, stolen data, or unauthorized data access</td>
 <td>Implement CSIRT, Incident Response Plan, create Cyber Security Incident, Organization-wide</td>
 </tr>
 
-<tr style="background-color:#9e6e2f">  
+<tr style="background-color:orange">  
 <td>2 – High</td>
 <td>Theoretical threat becomes active</td>
 <td>Widespread and/or with critical servers or data loss, stolen data, or unauthorized data access</td>
 <td>Implement CSIRT, Incident Response Plan, create Cyber Security Incident, Organization-wide</td>
 </tr>
 
-<tr style="background-color:#9e9e2f">  
+<tr style="background-color:yellow">  
 <td>3 – Medium</td>  
 <td>Email phishing or active spreading infection</td>
 <td>Widespread</td>
 <td>Implement CSIRT, Incident Response Plan, create Security Incident, Organization-wide</td>
 </tr>
 
-<tr style="background-color:#5a9e2f">  
+<tr style="background-color:green">  
 <td>4 - Low</td>
 <td>Malware or phishing</td>
 <td>Individual host or person</td>  
@@ -576,7 +576,7 @@ If a phishing attack impacts users:
 - Inform legal counsel if breach involves sensitive data
 - Monitor for suspicious activity on user accounts
 
-## Loss of Equipment – Specific Incident Response
+## LOSS OF EQUIPMENT
 
 If CSIRT investigations confirm that loss of equipment or theft has occurred, please execute the following:
 
@@ -621,14 +621,13 @@ The Incident Handler or their delegate is expected to handle the incident in a w
 - SANS GIAC Certifications – Incident Handler’s Handbook, <https://sansorg.egnyte.com/dl/6Btqoa63at/?>
 
 <style> 
-  /**.markdown-body {
-    width: 100%;
-  }**/
-  h1 {
+  .markdown-body h1 {
     text-align: center;
+    font-weight: bold;
   }
   .markdown-body table {
     display: table;
     overflow: auto;
+    width: 100%;
   }
 </style>

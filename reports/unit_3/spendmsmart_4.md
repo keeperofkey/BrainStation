@@ -39,18 +39,9 @@
 
 | Date    | Version    | Modification    | Modifier    |
 |---|---|---|---|
-| 2024-03-28 | 0.0.1 | templating | Liam Dodd |
+| 2024-03-28 | 0.0.1 | Incident handling processes - Contacts - Scope | Liam Dodd |
 
 # TESTING & REVIEW CYCLE
-
-> \[!NOTE\]
-> Instructions: Determine how often your Cyber Security Incident Response Plan
-> will be tested and how often reviews are required (Bi-annually, annually,
-> etc.). At a minimum, an incident response plan should be reviewed & updated
-> at least once every three years. Testing frequency is at an organization’s
-> discretion. Determine and document the process to test and review your Cyber
-> Security Incident response plan. If appropriate to your organization, the
-> example provided below can be used.
 
 Bi-annual testing of the Incident Response Plan is
 necessary to ensure the CSIRT (Cyber Security Incident Response Team) is
@@ -66,9 +57,6 @@ practical simulations of potential incidents.
 # PURPOSE & SCOPE
 
 ## PURPOSE
-
-> \[!NOTE\]
-> Instructions: Describe the purpose of your organization’s Incident Response Plan. If appropriate to your organization, the example provided below can be used.
 
 This Incident Response Plan exists to ensure Spendology Solutions is
 prepared to manage cyber incidents in an effective and efficient manner. Cyber
@@ -89,9 +77,6 @@ organized to respond to cyber security incidents effectively and efficiently.
 
 ## SCOPE
 
-> \[!NOTE\]
-> Instructions: Determine the scope of your plan, including all affected systems and stakeholders. You can refer to the example below and if appropriate, modify the scope as appropriate to your organization.
-
 This Incident Response Plan applies to our networks, systems, and data, and
 stakeholders (for example, employees, contractors, 3rd party vendors) that
 access them. Members of the organization who are part of the Cyber Security
@@ -107,20 +92,11 @@ should be performed in combatting cyber security incidents.
 
 # AUTHORITY
 
-> \[!NOTE\]
-> Instructions: Identify and document the individuals/role in your organization
-> that will be responsible for handling an incident.
-
 Responsibility for the security of company and customer information resides
 with the President/Owner. During times when a high or critical cyber security
 incident is underway, this responsibility is entrusted to the General Manager.
 
 # DEFINITIONS
-
-> \[!NOTE\]
-> Instructions: Review the definitions below and retain or revise as required.
-> If necessary, expand the list to best reflect your organization’s unique
-> Cyber Security Incident Response Plan.
 
 | Term | Description |
 | --- | --- |
@@ -143,12 +119,10 @@ incident is underway, this responsibility is entrusted to the General Manager.
 
 # HOW TO RECOGNIZE A CYBER INCIDENT
 
-> \[!NOTE\]
-> Instructions: Review and retain the indicators that are applicable to your organization. Expand the list of indicators as appropriate to your organization.
-
 A cyber security incident may not be recognized straightaway; however, there may be indicators of a security breach, system compromise, unauthorized activity, or signs of misuse within your environment, or that of your third-party service providers.
 
-1. Look out for any indication that a security incident has occurred or may be in progress. Some of these are outlined below:
+Look out for any indication that a security incident has occurred or may be in progress. Some of these are outlined below:
+
 1. Excessive or unusual log-in and system activity, in particular from any inactive user IDs (user accounts)
 1. Excessive or unusual remote access activity into your business. This could relate to staff or third-party providers
 1. The occurrence of any new wireless (Wi-Fi) networks visible or accessible from your environment
@@ -164,9 +138,6 @@ A cyber security incident may not be recognized straightaway; however, there may
 
 ## CSIRT STRUCTURE
 
-> \[!NOTE\]
-> Instructions: Provide the organization structure of your CSIRT Team. At a minimum, it must contain an Executive, an Incident Handler and a communication spokesperson as outlined in the common structure below.
-
 <figure>
   <figcaption>Common structure of a Cyber Security Incident Response Team (CSIRT).</figcaption>
   <br />
@@ -177,24 +148,16 @@ A cyber security incident may not be recognized straightaway; however, there may
 
 ## CSIRT ROLES
 
-> \[!NOTE\]
-> Instructions:
-> Define the roles and responsibilities, and provide the respective contact information for each member of the CSIRT in the provided space. A table is provided with examples of best practices
-> Each role should have a secondary and often a tertiary alternative identified
-> Some CSIRT roles may be fulfilled by third part vendors or contracted individuals
-> Note, the Incident Handler is not usually the company President/CEO, but rather the head of an IT Team. For organizations that do not have dedicated IT personnel, the President/CEO can assume the role
-> List key external contacts and stakeholders that you may need to contact during an incident (for example, legal representative, financial insertions, key clients, staff, IT provider, etc)
-
 | Role | Definition |
 | --- | --- |
 | Executive | Accountable Executive for protecting cyber security within the organization. Responsible for reporting to board directors and other executives. Within the CSIRT, this role is responsible for all issues requiring executive decision. |
 | Incident Handler | The Incident Handler is the main triage role of the CSIRT. This role organizes the team and initiates the Incident Response Plan to investigate and respond to cyber security incidents. |
 | Communications | The Communications Expert is responsible for both public relations and internal communications. They are the messenger to ensure that internal/external stakeholders, customers, and the public are informed in a timely and compliant fashion. |
-| Note-Taker | |
-| Network Technician | |
-| Desktop Technician | |
-| Server Technician | |
-| Legal Technician | |
+| Note-Taker | Documents all activities, findings, and communications during an incident. Provides detailed timeline of events and evidence. |
+| Network Technician | Investigates and responds to network related incidents. Performs network monitoring, analysis, and forensics. |
+| Desktop Technician | Investigates and responds to endpoint related incidents. Performs host monitoring, analysis, and forensics. |
+| Server Technician | Investigates and responds to server related incidents. Performs server monitoring, analysis, and forensics. |
+| Legal Technician | Provides guidance on legal requirements related to incident response, investigations, and notifications. Reviews incident communications. |
 
 # CSIRT RESPONSIBILITIES
 
@@ -209,7 +172,7 @@ The Executives are/is responsible for:
 1. Empowering the CSIRT to take necessary actions during incidents
 1. Reviewing and approving incident response policies and procedures
 1. Receiving reports and briefings on major incidents
-1. Authorizing communications about incidents to customers, partners, and public
+1. Authorizing communications about incidents to board members, customers, partners, and public
 
 **INCIDENT HANDLER**
 
@@ -219,8 +182,9 @@ The Incident Handler is responsible for:
 1. Assessing and containing incidents to prevent further damage
 1. Collecting and preserving evidence from affected systems
 1. Documenting details about incidents for post-mortem analysis
+1. Reporting to and assisting external parties when required
 1. Suggesting improvements to security controls and policies
-1. Maintaining and enhancing incident response skills through training
+1. Maintaining and enhancing incident response policies and procedures
 
 **COMMUNICATIONS EXPERT**
 
@@ -258,36 +222,42 @@ Cyber Security Incident Response Team (CSIRT) members are responsible for:
 
 | CSIRT Role | Name | Title | Phone | Email |
 |------------|------|-------|-------|-------|
-| Incident Handler (lead) | John Smith | 555-123-4567 | john.smith@spendology.com |\
-| Incident Handler (backup) | Jane Doe | 555-987-6543 | jane.doe@spendology.com |
-| Note-taker | Bob Johnson | 555-456-7890 | bob.johnson@spendology.com |\
-| Communications | Sarah Lee | 555-234-5678 | sarah.lee@spendology.com |
-| Network | Mike Davis | 555-345-6789 | mike.davis@spendology.com |
-| Desktop | Jessica Wong | 555-567-8901 | jessica.wong@spendology.com |
-| Server | David Kim | 555-678-9012 | david.kim@spendology.com |
-| Legal | Amy Green | 555-789-0123 | amy.green@spendology.com |
-| Executive | Chris Brown | 555-890-1234 | chris.brown@spendology.com |
+| Incident Handler (lead) | John Smith | Security engineer | 555-123-4567 | john.smith@spendology.com |
+| Incident Handler (backup) | Jane Doe | Security engineer | 555-987-6543 | jane.doe@spendology.com |
+| Note-taker | Bob Johnson | Security analyst | 555-456-7890 | bob.johnson@spendology.com |
+| Communications | Sarah Lee | Director of Communications | 555-234-5678 | sarah.lee@spendology.com |
+| Network | Mike Davis | Network Engineer | 555-345-6789 | mike.davis@spendology.com |
+| Desktop | Jessica Wong | IT Specialist | 555-567-8901 | jessica.wong@spendology.com |
+| Server | David Kim | Cloud Specialist | 555-678-9012 | david.kim@spendology.com |
+| Legal | Amy Green | Legal Analyst | 555-789-0123 | amy.green@spendology.com |
+| Executive |  Tom Walsh | CISO | 555-890-1234 | tom.walsh@spendology.com |
+| Executive |  Amanda Williams | CEO | 555-890-1234 | amanda.williams@spendology.com |
 
 ## EXTERNAL CONTACTS
 
 | Role | Organization | Name | Title | Phone | Email |
-|------|--------------|------|-------|-------|-------|
-| Investor | Sequoia Capital | John Doe | General Partner | 555-123-4567 | jdoe@sequoiacap.com |
-| Vendor | Acme Co. | Jane Smith | CEO | 555-987-6543 | jsmith@acme.com |\
-| Vendor | ABC Solutions | Bob Johnson | Sales Manager | 555-456-1234 | bjohnson@abcsolutions.com |
+|-|-|-|-|-|-|
+| Network Security Vendor Support Lead | Symantec | John Doe | Senior Support Engineer | 555-1234 | jdoe@symantec.com |
+| Network Security Vendor | Cisco | Jane Smith | Account Executive | 555-5678 | jsmith@cisco.com |
+| Lawyer | Smith & Jones LLP | Bob Johnson | Partner | 555-9101 | bjohnson@smithjones.com |
+| Parts Supplier | Acme Parts | Sam Wilson | Sales Manager | 555-1213 | swilson@acmeparts.com |
+| Card Acquirer Service | First Data | Sarah Lee | Vice President | 555-1415 | slee@firstdata.com |
+| Cyber Insurance Provider | Chubb | Tom Davis | Claims Adjuster | 555-1617 | tdavis@chubb.com |
+| Ransomware Decryption Service Provider | Coveware | Chris Miller | Lead Analyst | 555-1819 | cmiller@coveware.com |
+| Law Enforcement (local) | Springfield Police Department | Mike Thompson | Detective | 555-2021 | mthompson@springfieldpd.gov |
+| Law Enforcement (federal) | FBI | Susan Martinez | Special Agent | 555-2223 | smartinez@fbi.gov |
 
 ## OTHER STAKEHOLDER CONTACTS
 
 | Role | Organization | Name | Title | Phone | Email |
 |------|--------------|------|-------|-------|-------|
 | Investor | Acme Venture Capital | John Doe | Managing Partner | 555-123-4567 | jdoe@acmevc.com |
-| Customer | XYZ Corp | Jane Smith | CEO | 555-987-6543 | jsmith@xyzcorp.com |\
 | Partner | 123 Partners | Bob Johnson | President | 555-456-7890 | bjohnson@123partners.com |
+| Investor | Sequoia Capital | John Doe | General Partner | 555-123-4567 | jdoe@sequoiacap.com |
+| Vendor | Acme Co. | Jane Smith | CEO | 555-987-6543 | jsmith@acme.com |
+| Vendor | ABC Solutions | Bob Johnson | Sales Manager | 555-456-1234 | bjohnson@abcsolutions.com |
 
 # INCIDENT TYPES
-
-> \[!NOTE\]
-> Instructions: Review the incidents listed below and their description to determine which are appropriate to be included in your Plan. The types can be expanded as necessary.
 
 | Type | Description |
 |------|-------------|
@@ -305,9 +275,6 @@ Cyber Security Incident Response Team (CSIRT) members are responsible for:
 | Other | Any other incident that affects networks, systems, or data. |
 
 # INCIDENT SEVERITY MATRIX
-
-> \[!NOTE\]
-> Instructions: Review the sample best practice process below to determine if applicable for your organization’s. Revise to align with your organization.
 
 The CSIRT will determine the severity of the incident. They will consider:
 
@@ -362,6 +329,78 @@ The CSIRT will consider the available information to determine the known magnitu
 </tr>
 
 </table>
+
+### Preparation
+
+In preparation for a cyber security incident my organization commits to:
+
+- Establish an Incident Response Plan
+  - Create mandate, delegate authority, define decision making process and chain of command
+- Maintain hard and soft copies of the Incident Response Plan
+  - Hard copy located at Head Office with Office Manager
+  - Review and update plan annually, record revision history
+- Build a cyber security incident response team
+  - Dedicated, virtual, or on-retainer
+  - Provide necessary training
+- Document roles and responsibilities
+  - Delegate authority
+  - Provide necessary training
+- Conduct regular exercises and drills
+  - Prepare for known incidents so team can focus on unknown
+  - Test plan, team, and tools
+- Understand the environment
+  - Create diagrams, locate critical systems and data
+  - Ensure visibility into networks and systems
+  - Understand vendor environments and dependencies
+- Understand current controls
+  - Are they sufficient to mitigate risk?
+- Understand potential impacts
+  - Determine Maximum Tolerable Downtime (MTD) and Acceptable Interruption Window (AIW)
+  - Prioritize assets by downtime
+- Prepare war room and/or conference bridges
+  - Identify and equip secure physical and/or digital locations
+- Establish communications plan in advance
+- Establish agreements in advance
+  - Incident response contacts on retainer
+  - Annual plan review and updates
+  - Regular exercises
+  - Preferred pricing
+  - Service level agreements (SLAs)
+- Designate central point of contact for reporting incidents
+- Require all employees to immediately report cybersecurity events
+- Ensure all employees know how to report incidents
+- Ensure timely incident reporting
+
+### Identification
+
+In the event that a cyber security incident is identified, my organization commits to:
+
+- Assemble incident response team members
+- Designate lead investigator and documenter
+- Establish secure incident response workspace
+  - Ensure proper equipment and access controls
+- Classify incident type and severity
+  - Prioritize response accordingly
+- Interview involved parties
+  - Gather information on timeline, indicators, impact
+- Research threat actor TTPs
+  - Consult threat intel sources
+- Perform forensic analysis
+  - Image affected systems
+  - Inspect logs, memory, network traffic
+- Determine initial remediation steps
+  - Containment, eradication, recovery
+- Develop communication plan
+  - Internal stakeholders
+  - External organizations
+  - Customers (if applicable)
+- Document all findings and actions
+  - Create incident report
+  - Track ongoing response efforts
+- Conduct lessons learned
+  - Update response plans
+  - Improve detection capabilities
+  - Strengthen security controls
 
 ### Containment
 
@@ -459,11 +498,6 @@ Our organization takes the following steps during the Lessons Learned phase:
 
 # INCIDENT SPECIFIC HANDLING PROCESSES
 
-Refer to the example of a completed Cyber Incident Response Plan to determine processes that may apply to your organization.
-
-> \[!NOTE\]
-> Instructions: Provide the steps for handling specific incidents as defined by your organization. Review the list of common types of incidents below and determine which are applicable to your organization. Provide additional incident types as necessary.
-
 Here are the steps for handling common security incidents in our organization:
 
 ## DATA BREACH
@@ -542,31 +576,41 @@ If a phishing attack impacts users:
 - Inform legal counsel if breach involves sensitive data
 - Monitor for suspicious activity on user accounts
 
+## Loss of Equipment – Specific Incident Response
+
+If CSIRT investigations confirm that loss of equipment or theft has occurred, please execute the following:
+
+- Report any theft or loss of assets like PCs, laptops, or mobile devices to local law enforcement immediately. This includes losses outside of business hours and on weekends.
+
+- If the lost or stolen device contained sensitive data or payment card information and was not encrypted, the CSIRT team will analyze the sensitivity, type, and volume of stolen data. This includes any exposed payment card numbers.
+
+- Where possible, CSIRT will remotely lock, disable, and wipe lost or stolen mobile devices like smartphones, tablets, and laptops. They will capture evidence to confirm this was completed successfully.
+
+- If help is needed identifying devices, contact the Network Security Vendor Support Lead or Helpdesk (see External Contact List). They can provide additional help and expertise.
+
 # APPROVALS
 
 ## RESPONSIBLE PARTY
-
-> Instructions: Determine who will be responsible for the development, updating and enforcement of the Incident Response Plan.
 
 Responsibility for the security of company and customer information resides with the following Responsible Party:
 
 | Responsible Party Name and Title | Responsible Party Signature | Version | Date |
 |---|---|---|---|
-| : | | | |
+|  Tom Walsh , CISO | | 1.0 | |
+|  Amanda Williams , CEO | | 1.0 | |
 
 The Responsible Party has reviewed the Incident Response Plan and delegates the responsibility for mitigating harm to the organization to the Incident Handler.
 During times when a high or critical cyber security incident is underway this responsibility is entrusted to the Incident Handler or their delegate.
 
 ## INCIDENT HANDLER
 
-> Instructions: Identify who the Incident Handler is for your plan and their respective responsibilities. If appropriate, you can use the example below.
-
 The Incident Handler has reviewed the Security Incident Response Plan and acknowledges that, when a high or critical cyber security incident is underway, responsibility for managing the incident is entrusted to the Incident Handler or their delegate.
 The Incident Handler or their delegate is expected to handle the incident in a way that mitigates further exposure of the organization. The incident will be handled according to process including identification, containment, eradication, recovery, and lessons learned.
 
 | Incident Party Name and Title | Incident Party Signature | Version | Date |
 |---|---|---|---|
-| : | | | |
+| Incident Handler (lead),  John Smith |  | 1.0 | |
+| Incident Handler (backup), Jane Doe |  | 1.0 | |
 
 # REFERENCES
 
@@ -577,10 +621,14 @@ The Incident Handler or their delegate is expected to handle the incident in a w
 - SANS GIAC Certifications – Incident Handler’s Handbook, <https://sansorg.egnyte.com/dl/6Btqoa63at/?>
 
 <style> 
-  .markdown-body {
+  /**.markdown-body {
     width: 100%;
-  }
+  }**/
   h1 {
     text-align: center;
+  }
+  .markdown-body table {
+    display: table;
+    overflow: auto;
   }
 </style>

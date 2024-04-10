@@ -1,4 +1,20 @@
-# Business Continuity Plan
+<div class="title">
+    <div>Business Continuity Plan</div>
+    <div>Liam Dodd</div>
+    <div>April 8, 2024</div>
+</div>
+
+<style>
+    .title {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        height: 842pt;
+        font-size: 36pt;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
 
 Create a business continuity plan, including a risk assessment and business impact analysis of your chosen processes. Develop a continuity strategy, as well as a backup and recovery plan. A communication plan should also be included.
 

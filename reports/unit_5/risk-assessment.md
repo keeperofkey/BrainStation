@@ -4,6 +4,18 @@
     <div>April 8, 2024</div>
 </div>
 
+<style>
+    .title {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        height: 842pt;
+        font-size: 36pt;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
 # Cybersecurity Risk Assessment:
 
 Based on your chosen scenario, identify two core processes presented. These processes should be sufficiently complicated enough to conduct a detailed analysis for this project. Understanding the core processes is crucial for identifying cybersecurity threats and vulnerabilities.
@@ -128,6 +140,18 @@ Deliverable: Write a Risk Assessment Report:
 - Theft of medical records or images
 - Inaccurate AI output sent to wrong party
 
+# Executive Summary
+
+> A concise overview of the risk assessment findings, tailored for quick understanding by senior leadership.
+
+# High Impact Risk Overview
+
+> Detailed analysis of the most significant risks identified during the risk assessment.
+
+# Recommendations
+
+> Suggested actions or strategies to mitigate or manage identified risks.
+
 ## Data Privacy and Compliance
 
 - Healthcare data is highly sensitive and there are strict regulations around its use, storage, and transmission.
@@ -186,30 +210,6 @@ Deliverable: Write a Risk Assessment Report:
 - Regularly backup data and configurations.
 - Test disaster recovery procedures periodically.
 
-# Executive Summary
-
-> A concise overview of the risk assessment findings, tailored for quick understanding by senior leadership.
-
-# High Impact Risk Overview
-
-> Detailed analysis of the most significant risks identified during the risk assessment.
-
-# Recommendations
-
-> Suggested actions or strategies to mitigate or manage identified risks.
-
 # Conclusion
 
 > A wrap of the findings and overall implications for the organization.
-
-<style>
-    .title {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
-        height: 842pt;
-        font-size: 36pt;
-        text-align: center;
-        font-weight: bold;
-    }
-</style>

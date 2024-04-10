@@ -1,4 +1,22 @@
-# Third-Party Risk
+<div class="title">
+    <div>Third-Party Risk</div>
+    <div>Liam Dodd</div>
+    <div>April 8, 2024</div>
+</div>
+
+<style>
+    .title {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        height: 842pt;
+        font-size: 36pt;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+# 
 
 Identify third-party vendors or services and update the risk register if needed to include third parties. Develop a shared responsibility model for cloud infrastructure that supports the chosen processes, threat model, and network and data security solutions.
 

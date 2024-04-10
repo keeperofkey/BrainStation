@@ -1,4 +1,22 @@
-# Network and Data Security
+# 
+
+<div class="title">
+    <div>Network and Data Security</div>
+    <div>Liam Dodd</div>
+    <div>April 8, 2024</div>
+</div>
+
+<style>
+    .title {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        height: 842pt;
+        font-size: 36pt;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
 
 Develop a network topology diagram that would be required to support the chosen processes. A network topology diagram helps in identifying potential vulnerabilities in the network structure.
 

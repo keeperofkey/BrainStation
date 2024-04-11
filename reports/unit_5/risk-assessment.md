@@ -142,11 +142,20 @@ Deliverable: Write a Risk Assessment Report:
 
 # Executive Summary
 
-> A concise overview of the risk assessment findings, tailored for quick understanding by senior leadership.
+- Our most critical assets are patient data, intellectual property, and systems that support core operations.
+- Key strategic risks involve theft of IP, legal issues around data usage, and damage to reputation.
+- Top financial risks include cybercrime, fines, lawsuits, and ransomware.
+- Major operational risks stem from cyber attacks, IP theft, insider threats, and vendor issues.
+- Compliance risks center on regulatory requirements for PII/medical data and AI/algorithms.
+- Third party risks involve breaches via clients, vendors, and contractors.
+- Core data risks relate to leaks of PII and medical data, inaccurate AI output.
+- Recommend focusing risk management on strengthening data security, incident response, insider threat detection, vendor oversight, and compliance auditing.
 
 # High Impact Risk Overview
 
-> Detailed analysis of the most significant risks identified during the risk assessment.
+Detailed analysis of the most significant risks identified during the risk assessment.
+
+![A table of the most significant risks](./risk-register.png)
 
 # Recommendations
 

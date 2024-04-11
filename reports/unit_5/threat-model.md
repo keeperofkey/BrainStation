@@ -39,6 +39,8 @@ the identified threats.
 
 This document outlines potential threats and mitigations for the computer vision system being developed by VISION for the healthcare client using the STRIDE methodology.
 
+![A Flow graph threat model](../../imgs/threatdragon.png)
+
 ## Spoofing Threats
 
 - An attacker could spoof login credentials to gain unauthorized access to patient data or system functions.
@@ -93,7 +95,7 @@ This document outlines potential threats and mitigations for the computer vision
 
 ## Denial of Service Threats
 
-- Attackers could flood the public API with requests.
+- Attackers could flood the API with requests.
 
   - Mitigation: Implement rate limiting on the API.
 

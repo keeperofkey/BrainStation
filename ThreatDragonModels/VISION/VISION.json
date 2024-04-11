@@ -18,342 +18,6 @@
         "version": "2.2.0",
         "cells": [
           {
-            "position": {
-              "x": 176.25,
-              "y": -155
-            },
-            "size": {
-              "width": 110,
-              "height": 110
-            },
-            "attrs": {
-              "text": {
-                "text": "Imaging"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "zIndex": 1,
-            "id": "5b2bab28-7958-432b-a528-dcf944d6268c",
-            "data": {
-              "type": "tm.Process",
-              "name": "Imaging",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 190,
-              "y": 45
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Cloud \npatient data"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 2,
-            "id": "cfa8bb08-4ad1-408d-b6d0-d927c99a1957",
-            "data": {
-              "type": "tm.Store",
-              "name": "Cloud \npatient data",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 547,
-              "y": -15
-            },
-            "size": {
-              "width": 60,
-              "height": 60
-            },
-            "attrs": {
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "zIndex": 3,
-            "id": "0082b1cf-5a23-4c68-bd14-4a8201c0b708",
-            "data": {
-              "type": "tm.Process",
-              "name": "Process",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 517,
-              "y": 128
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 4,
-            "id": "c39f6259-9acb-4d41-b031-1f77f9e4d2ff",
-            "data": {
-              "type": "tm.Store",
-              "name": "Store",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 175,
-              "y": -280
-            },
-            "size": {
-              "width": 112.5,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Technician"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "actor",
-            "zIndex": 5,
-            "id": "695798be-67ab-4e42-966d-b16778f6e292",
-            "data": {
-              "type": "tm.Actor",
-              "name": "Technician",
-              "description": "Verifies patent file and tests",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "providesAuthentication": false,
-              "threats": []
-            }
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "id": "b017116d-e275-4481-8259-799157aebdb3",
-            "source": {
-              "x": 190,
-              "y": 210
-            },
-            "target": {
-              "x": 400,
-              "y": -300
-            },
-            "vertices": [
-              {
-                "x": 400,
-                "y": 20
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "20a6a0a9-36e1-4d1c-8b95-4d3349089205",
-            "source": {
-              "cell": "695798be-67ab-4e42-966d-b16778f6e292"
-            },
-            "target": {
-              "cell": "5b2bab28-7958-432b-a528-dcf944d6268c"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "751516a5-2bb0-41aa-ae7a-a05a7b404d38",
-            "source": {
-              "cell": "5b2bab28-7958-432b-a528-dcf944d6268c"
-            },
-            "target": {
-              "cell": "cfa8bb08-4ad1-408d-b6d0-d927c99a1957"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "5c19968a-9346-4f12-b130-b1d2f13e1f8b",
-            "source": {
-              "cell": "5b2bab28-7958-432b-a528-dcf944d6268c"
-            },
-            "target": {
-              "cell": "7b455088-914b-413f-914c-65e2a11279f8"
-            },
-            "vertices": [
-              {
-                "x": 100,
-                "y": -10
-              }
-            ]
-          },
-          {
             "shape": "flow",
             "attrs": {
               "line": {
@@ -933,47 +597,6 @@
           },
           {
             "position": {
-              "x": 15,
-              "y": 55
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Client Cloud\nEnvironment"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 11,
-            "id": "7b455088-914b-413f-914c-65e2a11279f8",
-            "data": {
-              "type": "tm.Store",
-              "name": "Client Cloud\nEnvironment",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": []
-            }
-          },
-          {
-            "position": {
               "x": -1735,
               "y": -1455
             },
@@ -993,8 +616,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "f6b49269-2c68-4c0c-876e-379221e6a157",
             "zIndex": 12,
+            "id": "f6b49269-2c68-4c0c-876e-379221e6a157",
             "data": {
               "type": "tm.Process",
               "name": "Medical\nImaging",
@@ -1030,8 +653,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "b934cda8-a5af-4213-93fd-f85091544681",
             "zIndex": 13,
+            "id": "b934cda8-a5af-4213-93fd-f85091544681",
             "data": {
               "type": "tm.Actor",
               "name": "Technician",
@@ -1078,8 +701,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "b70e3def-c0e3-4f21-b2b3-0644a06c455d",
             "zIndex": 14,
+            "id": "b70e3def-c0e3-4f21-b2b3-0644a06c455d",
             "data": {
               "type": "tm.Actor",
               "name": "Patient",
@@ -1142,8 +765,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "7e52c943-5c33-4fdb-a0bb-37bd156b6a87",
             "zIndex": 15,
+            "id": "7e52c943-5c33-4fdb-a0bb-37bd156b6a87",
             "data": {
               "type": "tm.Store",
               "name": "Patient Data",
@@ -1180,8 +803,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "eb542382-7ce5-48a5-a38e-603f786f9a37",
             "zIndex": 16,
+            "id": "eb542382-7ce5-48a5-a38e-603f786f9a37",
             "data": {
               "type": "tm.Process",
               "name": "AI\nModels",
@@ -1249,8 +872,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "0b705bf8-3a86-46fc-90a9-756e38e366b9",
             "zIndex": 17,
+            "id": "0b705bf8-3a86-46fc-90a9-756e38e366b9",
             "data": {
               "type": "tm.Store",
               "name": "VISION LIBRARY",
@@ -1314,8 +937,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "9042ad0a-25dd-423b-b845-7a853bbfc0f0",
             "zIndex": 18,
+            "id": "9042ad0a-25dd-423b-b845-7a853bbfc0f0",
             "data": {
               "type": "tm.Process",
               "name": "AI Training",
@@ -1370,8 +993,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "6b441fa9-ac0a-44e7-9320-5285cacb5f46",
             "zIndex": 21,
+            "id": "6b441fa9-ac0a-44e7-9320-5285cacb5f46",
             "data": {
               "type": "tm.Store",
               "name": "Client Cloud",
@@ -1435,8 +1058,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "493f509c-167a-4cdc-9850-1fe5bbe529cf",
             "zIndex": 22,
+            "id": "493f509c-167a-4cdc-9850-1fe5bbe529cf",
             "data": {
               "type": "tm.Actor",
               "name": "Attacker",
@@ -1483,8 +1106,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "9dab195c-5cec-4b8e-acd1-4267405b033c",
             "zIndex": 23,
+            "id": "9dab195c-5cec-4b8e-acd1-4267405b033c",
             "data": {
               "type": "tm.Process",
               "name": "Web App",
@@ -1576,8 +1199,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "0536bcdb-0609-431a-b802-78636fb00744",
             "zIndex": 24,
+            "id": "0536bcdb-0609-431a-b802-78636fb00744",
             "data": {
               "type": "tm.Store",
               "name": "Patient\nCache",

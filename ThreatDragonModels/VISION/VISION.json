@@ -623,45 +623,6 @@
             }
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "aa58dacb-ca9b-4784-9c92-3da8a5ae8fc4",
-            "source": {
-              "cell": "b70e3def-c0e3-4f21-b2b3-0644a06c455d"
-            },
-            "target": {
-              "cell": "9dab195c-5cec-4b8e-acd1-4267405b033c"
-            }
-          },
-          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -787,51 +748,6 @@
               "protocol": "",
               "threats": []
             },
-            "id": "ff8e2304-5db2-4c62-9553-5e698cda351f",
-            "source": {
-              "cell": "eb542382-7ce5-48a5-a38e-603f786f9a37"
-            },
-            "target": {
-              "cell": "9dab195c-5cec-4b8e-acd1-4267405b033c"
-            },
-            "vertices": [
-              {
-                "x": -1260,
-                "y": -1120
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
             "id": "ab481728-9631-47be-bfbf-e024bfd33fb8",
             "source": {
               "cell": "0536bcdb-0609-431a-b802-78636fb00744"
@@ -888,6 +804,130 @@
               {
                 "x": -1290,
                 "y": -1258.5
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "19952d6d-03b2-4e5e-9d6c-537b5c9b0e2c",
+                  "title": "Modify outputs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "- An attacker could modify model parameters or outputs.\n",
+                  "mitigation": "  - Mitigation: Store models in an immutable data store. Alert on unexpected changes.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "ff8e2304-5db2-4c62-9553-5e698cda351f",
+            "source": {
+              "cell": "eb542382-7ce5-48a5-a38e-603f786f9a37"
+            },
+            "target": {
+              "cell": "9dab195c-5cec-4b8e-acd1-4267405b033c"
+            },
+            "vertices": [
+              {
+                "x": -1200,
+                "y": -1160
+              },
+              {
+                "x": -1260,
+                "y": -1120
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "869bce1e-0b13-4306-8dfa-41bc5654706f",
+                  "title": "Patient Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "- Patient data could be exposed in transit over the network.\n",
+                  "mitigation": "  - Mitigation: Encrypt all connections with TLS.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "aa58dacb-ca9b-4784-9c92-3da8a5ae8fc4",
+            "source": {
+              "cell": "b70e3def-c0e3-4f21-b2b3-0644a06c455d"
+            },
+            "target": {
+              "cell": "9dab195c-5cec-4b8e-acd1-4267405b033c"
+            },
+            "vertices": [
+              {
+                "x": -1630,
+                "y": -1100
               }
             ]
           },
@@ -1003,7 +1043,7 @@
               "threats": [
                 {
                   "id": "e4aabaeb-012d-46fc-918b-ee3e40e5a646",
-                  "title": "New STRIDE threat",
+                  "title": "Spoof Login",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
@@ -1051,7 +1091,7 @@
               "threats": [
                 {
                   "id": "b4715f09-4a94-4526-849d-81e4196b6bdd",
-                  "title": "New STRIDE threat",
+                  "title": "Spoof Login",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
@@ -1060,6 +1100,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "06ab5960-599e-40fd-a09d-5f999b87de4c",
+                  "title": "Deny Access",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "- Users could deny having accessed patient data.\n",
+                  "mitigation": "  - Mitigation: Implement detailed audit logging for all data access.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
                   "score": ""
                 }
               ]
@@ -1120,8 +1173,8 @@
                 "text": "AI\nModels"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1135,12 +1188,39 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "befe6952-d62b-48f7-9ebc-96f26118aeb3",
+                  "title": "Modify Param",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "- An attacker could modify model parameters or outputs.\n",
+                  "mitigation": "  - Mitigation: Store models in an immutable data store. Alert on unexpected changes.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "a2acd239-9f98-4fa7-864b-7775a1b1301a",
+                  "title": "Bad Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "- The AI system could be overwhelmed with invalid data.\n",
+                  "mitigation": "  - Mitigation: Input validation and anomaly detection.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1186,15 +1266,28 @@
               "threats": [
                 {
                   "id": "6fb62db0-8d06-4182-a5c7-9a5dd8d62a0a",
-                  "title": "New STRIDE threat",
+                  "title": "Degrade Model",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "- An attacker could alter training data to degrade model accuracy.\n",
+                  "mitigation": "  - Mitigation: Store training data in an immutable data store.\n",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "68fd621c-431e-4a8a-b6c3-2e725bb87176",
+                  "title": "Logging",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "- An attacker could modify system logs or alerts to cover their tracks.\n",
+                  "mitigation": " - Mitigation: Send logs to a SIEM in real-time. Alert on log tampering.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
                   "score": ""
                 }
               ]
@@ -1214,8 +1307,8 @@
                 "text": "AI Training"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1229,12 +1322,26 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "150b6790-bba3-46af-8466-b282ab4604a9",
+                  "title": "Resource Exploit",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "- Attackers could consume all training compute resources.\n",
+                  "mitigation": "  - Mitigation: Enforce resource quotas per user.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1251,11 +1358,13 @@
                 "text": "Client Cloud"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1269,13 +1378,40 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": true,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "985eff35-8140-4a6e-ba16-b139b535e2f9",
+                  "title": "Patient Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "- Patient data could be exposed due to misconfigured storage permissions.\n",
+                  "mitigation": "  - Mitigation: Implement least privilege permissions on all data.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "0f2ca249-d373-4d0f-8557-20dcb7fe941a",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 18,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1292,8 +1428,8 @@
                 "text": "Attacker"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1307,9 +1443,23 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "f7df7b1e-4578-461d-9b48-3af0de6878df",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 6,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1326,8 +1476,8 @@
                 "text": "Web App"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1341,12 +1491,65 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "faa7931a-3fbd-4928-8e47-a17199581b03",
+                  "title": "Secrets Exposed",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "- Credentials or API keys could be exposed.\n",
+                  "mitigation": "  - Mitigation: Store secrets in a secrets vault with limited access.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "44719eb8-8ec7-4abd-aaf1-c0fb0f7c1abd",
+                  "title": "API Flood",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "- Attackers could flood the API with requests.\n",
+                  "mitigation": "  - Mitigation: Implement rate limiting on the API.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "d26e0552-6917-4361-9938-c9d2f1c19f47",
+                  "title": "Compromised Creds",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "- A user could escalate privileges through compromised credentials.\n",
+                  "mitigation": "  - Mitigation: Enforce role-based access control. Rotate credentials regularly.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "cfba187c-09f9-40ea-b625-c7b2e0dc0e16",
+                  "title": "Exploit Vuln",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "- An attacker could exploit a vulnerability to gain system access.\n",
+                  "mitigation": "  - Mitigation: Harden systems and keep software patched and updated.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -1395,6 +1598,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 5
+    "threatTop": 20
   }
 }

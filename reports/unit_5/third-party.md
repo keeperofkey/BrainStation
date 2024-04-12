@@ -16,15 +16,35 @@
     }
 </style>
 
-# 
+# Third-Party Risk Assessment for VISION
 
-Identify third-party vendors or services and update the risk register if needed to include third parties. Develop a shared responsibility model for cloud infrastructure that supports the chosen processes, threat model, and network and data security solutions.
+## Executive Summary
 
-Deliverable: Write a Third-Party Risk Report
+This report provides a comprehensive third-party risk assessment for VISION
+Corporation. It identifies key risks associated with third-party vendors and
+services and provides mitigation strategies.
 
-# Risk Register for VISION
+The scope includes an evaluation of strategic, financial, operational,
+compliance, data privacy, vendor, supply chain, and business continuity risks.
+A shared responsibility model is proposed to delineate security obligations
+between VISION and its cloud providers.
 
-## Strategic Risks
+Proper third-party risk management is crucial for VISION to maintain regulatory
+compliance, protect sensitive data, ensure business continuity, and minimize
+financial, legal, and reputational exposure. This report provides actionable
+insights to help VISION make informed risk decisions regarding third-party
+relationships.
+
+Ongoing monitoring and governance of third-party risks is recommended through
+mechanisms like risk registers, vendor assessments, and contract terms. With
+appropriate risk mitigation and oversight, VISION can strategically leverage
+third-parties to enable innovation and growth.
+
+## Third-Party Risk Register
+
+![Third-party risk register](./tp-risk-reg.png)
+
+### Strategic Risks
 
 - **Risk:** VISION's AI and algorithms may demonstrate bias and unfairness towards certain groups, resulting in legal liability and reputation damage.
 
@@ -34,17 +54,13 @@ Deliverable: Write a Third-Party Risk Report
 
   - **Mitigation:** Invest heavily in R&D and recruit top AI talent. Pursue strategic acquisitions.
 
-## Financial Risks
+### Financial Risks
 
 - **Risk:** Cloud costs may escalate rapidly as data storage and computing needs increase.
 
-  - **Mitigation:** Negotiate discounts with cloud providers. Monitor usage regularly and optimize costs.
+  - **Mitigation:** Monitor usage regularly and optimize costs. Utilize platform agnostic configuration to make migration possible if necessary.
 
-- **Risk:** Customers may default on payments due to economic downturn.
-
-  - **Mitigation:** Perform credit checks on new customers. Pursue insurance on receivables.
-
-## Operational Risks
+### Operational Risks
 
 - **Risk:** Prolonged outage at cloud providers disrupts services and causes data loss.
 
@@ -58,7 +74,7 @@ Deliverable: Write a Third-Party Risk Report
 
   - **Mitigation:** Incentivize retention with stock options. Cross-train employees. Document processes thoroughly.
 
-## Compliance Risks
+### Compliance Risks
 
 - **Risk:** Non-compliance with GDPR results in heavy fines.
 
@@ -68,49 +84,29 @@ Deliverable: Write a Third-Party Risk Report
 
   - **Mitigation:** Classify data by sensitivity. Limit access to PII data. Implement encryption and data masking.
 
-# Third-Party Risk Assessment for VISION
+### Vendor and Supply Chain Risks
 
-## Data Privacy and Security Risks
+- **Risk:** Reliance on many third-party vendors for services like cleaning, food, accounting etc.
 
-- VISION's training data library contains large amounts of data that may include sensitive information. There is a risk of data leakage or misuse if proper access controls and security measures are not in place.
+  - **Mitigation:** Proper due diligence should be conducted to validate these vendors.
 
-- VISION utilizes third-party cloud providers like AWS to store data. There is a risk of data breach if these providers have vulnerabilities or misconfigurations.
+- **Risk:** An overseas cybersecurity monitoring team. There are risks of data exfiltration and lack of visibility into their activities.
 
-- VISION should have comprehensive data governance policies and procedures in place to properly handle sensitive data. Lack of data governance could lead to compliance violations.
+- **Risk:** No vendor risk management program to assess and monitor third-party vendors on an ongoing basis.
 
-## Vendor and Supply Chain Risks
+### Business Continuity Risks
 
-- VISION relies on many third-party vendors for services like cleaning, food, accounting etc. Proper due diligence should be conducted to validate these vendors.
+- **Risk:** VISION is highly dependent on its IT infrastructure and cloud providers. Any outages could significantly impact operations.
 
-- VISION utilizes an overseas cybersecurity monitoring team. There are risks of data exfiltration and lack of visibility into their activities.
+- **Risk:** Reliance on any single vendor or system.
 
-- VISION should have a vendor risk management program to assess and monitor third-party vendors on an ongoing basis.
+  - **Mitigation:** Redundancy built into critical systems and a tested business continuity plan.
 
-## Business Continuity Risks
-
-- As a tech company, VISION is highly dependent on its IT infrastructure and cloud providers. Any outages could significantly impact operations.
-
-- VISION should have redundancy built into critical systems and a tested business continuity plan. Reliance on any single vendor or system is a risk.
-
-## Compliance and Legal Risks
-
-- VISION must comply with data privacy regulations like GDPR if handling EU citizen data. Fines for non-compliance can be substantial.
-
-- VISION's AI systems should be tested for bias to avoid legal issues or reputational damage.
-
-- VISION should implement a compliance program with policies, training, and auditing to adhere to relevant laws and regulations.
-
-# Executive Summary: Brief introduction to the scope and purpose of the third-party risk analysis.
-
-# Third-Party Risk Register: A detailed register of risks associated with any third-party vendors or services
-
-# Shared Responsibility Model: Explanation of the shared responsibility in the cloud infrastructure models (Saas, IaaS, etc.).
-
-# Shared Responsibility Model
+## Shared Responsibility Model
 
 The shared responsibility model defines the division of responsibilities between cloud providers and customers when using cloud services. It helps understand security and compliance obligations for both parties.
 
-## Key Points
+### Key Points
 
 - In cloud computing, responsibilities for security and compliance are shared between the cloud provider and the customer. The division depends on the service model used.
 
@@ -124,6 +120,75 @@ The shared responsibility model defines the division of responsibilities between
 
 - The shared responsibility model creates interdependence between the provider and customer. Close cooperation is needed to ensure end-to-end security.
 
-# Risk Management Strategies: Strategies and methods for managing third-party risks.
+## Risk Management Strategies
 
-# Conclusion: Overall findings and the importance of managing third-party risks.
+Third-party vendors and service providers play a crucial role in our business
+operations. However, engaging third-parties also exposes us to significant
+risks that need to be managed. This report summarizes the key risks associated
+with our third-party relationships and provides risk mitigation strategies.
+
+### Risk Assessment
+
+We have identified the following key risk areas when engaging third-parties:
+
+#### Strategic Risks
+
+- Over-reliance on a small number of vendors, resulting in concentration risk
+- Vendors gaining access to sensitive IP or capabilities, increasing competitive risk
+
+#### Financial Risks
+
+- Vendors going bankrupt or ceasing operations, leading to service disruption
+- Vendors failing to meet service levels, resulting in penalties or lost revenue
+
+#### Operational Risks
+
+- Vendors mishandling sensitive data, causing data breaches
+- Vendors experiencing outages, interrupting business operations
+- Vendors using substandard quality components, impacting product quality
+
+#### Compliance Risks
+
+- Vendors violating laws or regulations, leading to fines or litigation
+- Vendors lacking adequate controls around data privacy or security
+
+### Risk Mitigation Strategies
+
+To mitigate third-party risks, we recommend the following strategies:
+
+- Establish a vendor risk management program for due diligence and monitoring
+- Include service level agreements (SLAs) and security requirements in contracts
+- Conduct regular vendor audits and site visits
+- Maintain business continuity plans for vendor failure scenarios
+- Require cyber insurance coverage for vendors handling sensitive data
+- Diversify vendors to avoid concentration risk
+- Implement controls like encryption for data shared with vendors
+
+## Conclusion
+
+This report provides a comprehensive assessment of the key risks associated
+with third-party vendors and service providers at VISION Corporation. Proper
+oversight and management of third-party relationships is crucial for reducing
+the organization's exposure to strategic, financial, operational, compliance,
+data privacy, supply chain, and business continuity risks.
+
+By implementing a robust vendor risk management program, VISION can
+continuously monitor and evaluate risks posed by vendors. Ongoing due
+diligence, audits, contract terms, and security controls are vital for
+mitigating third-party risks.
+
+As VISION adopts cloud computing and other third-party services, it is
+essential to have a clear understanding of the shared responsibility model.
+VISION must fulfill its obligations around data security, access controls, and
+compliance in the cloud.
+
+With appropriate governance and risk mitigation strategies, VISION can securely
+leverage third-parties to create business value and enable innovation. However,
+third-party relationships must be built on a foundation of trust and risk
+transparency between the parties involved.
+
+This report provides VISION with actionable insights into current third-party
+risks and how to reduce exposure going forward. But third-party risk management
+must be an ongoing process, adapting to new partnerships and evolving business
+needs. Regular communication, contract review, and risk assessments will
+strengthen VISION's vendor relationships while protecting the organization.

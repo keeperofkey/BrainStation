@@ -16,43 +16,6 @@
     }
 </style>
 
-# Cybersecurity Risk Assessment:
-
-Based on your chosen scenario, identify two core processes presented. These processes should be sufficiently complicated enough to conduct a detailed analysis for this project. Understanding the core processes is crucial for identifying cybersecurity threats and vulnerabilities.
-
-# Process Flow Chart
-
-Put together the flow charts detailing each step of the process.
-
-## A Data Collection, Ingestion, & Management Interface
-
-If customers need to train for specific use cases, VISION has made comprehensive software that allows its customers to upload, organize, and manage image or video data used to train an artificial intelligence model.
-
-There are a number of considerations here including file size and type, number of files, content of data being uploaded (e.g. intellectual property), storage location of the data, and more.
-
-## A Data Annotation & Labeling Interface
-
-AI systems don’t inherently "know" what the data being presented is. Humans need to point out those patterns by leaving annotations or labels, among other supporting data/metadata.
-
-The provided interface helps make that process easy and scalable by allowing users to provide examples or leverage the company’s proprietary software to help speed up the data annotation and labeling process.
-
-## Training Data Library & Model Library
-
-VISION has solutions tailored to different levels of effort and involvement
-desired by customers. Their training data library houses a vast amount of
-different image and video data that can be used to train a computer vision
-model. Rather than having clients search, organize and manage all the training
-data, they can obtain a massive amount of value by using collections already
-curated by VISION. It’s important to note there are privacy, security,
-intellectual property and other considerations to consider for VISION’s library
-along with how that data is being used.
-
-If clients don’t want to train their own artificial intelligence model, they
-can use a pre-trained one provided by VISION. While this is an added cost, it
-is also an added value to clients, simplifying their process to build a
-solution. The downside here is that pre-trained models lack the same level of
-customization and control given to custom-developed models.
-
 # People, Processes, and Technology
 
 Next identify the people, and technology supporting the processes identified. It is important to recognize these elements to understand the ecosystem where cybersecurity measures will be applied.
@@ -70,17 +33,26 @@ Next identify the people, and technology supporting the processes identified. It
 - maintain highly efficient infrastructure
 - remain secure but accessible
 
-# Data Flow Chart
+# Executive Summary
 
-Now that you’ve put together the processes flow chart, create a data flow diagram. This is essential for visualizing how data moves through the system, which is critical for threat modeling.
+- Our most critical assets are patient data, intellectual property, and systems that support core operations.
+- Key strategic risks involve theft of IP, legal issues around data usage, and damage to reputation.
+- Top financial risks include cybercrime, fines, lawsuits, and ransomware.
+- Major operational risks stem from cyber attacks, IP theft, insider threats, and vendor issues.
+- Compliance risks center on regulatory requirements for PII/medical data and AI/algorithms.
+- Third party risks involve breaches via clients, vendors, and contractors.
+- Core data risks relate to leaks of PII and medical data, inaccurate AI output.
+- Recommend focusing risk management on strengthening data security, incident response, insider threat detection, vendor oversight, and compliance auditing.
 
-# Asset List and Register
+# Data Flow
 
-Compile an asset list and create a risk register. Identifying assets and potential risk is the first step in any cybersecurity defense strategy.
+![Flow chart of the data](./data-flow.png)
 
-Note: all deliverables are to be based specifically on these 4 items identified
+# High Impact Risk Overview
 
-Deliverable: Write a Risk Assessment Report:
+Detailed analysis of the most significant risks identified during the risk assessment.
+
+![A table of the most significant risks](./risk-register.png)
 
 # Asset List
 
@@ -113,7 +85,6 @@ Deliverable: Write a Risk Assessment Report:
 - Theft of funds via cybercrime
 - Fines for regulatory non-compliance
 - Lawsuits from data breaches
-- Ransomeware
 
 ## Operational Risks
 
@@ -140,26 +111,7 @@ Deliverable: Write a Risk Assessment Report:
 - Theft of medical records or images
 - Inaccurate AI output sent to wrong party
 
-# Executive Summary
-
-- Our most critical assets are patient data, intellectual property, and systems that support core operations.
-- Key strategic risks involve theft of IP, legal issues around data usage, and damage to reputation.
-- Top financial risks include cybercrime, fines, lawsuits, and ransomware.
-- Major operational risks stem from cyber attacks, IP theft, insider threats, and vendor issues.
-- Compliance risks center on regulatory requirements for PII/medical data and AI/algorithms.
-- Third party risks involve breaches via clients, vendors, and contractors.
-- Core data risks relate to leaks of PII and medical data, inaccurate AI output.
-- Recommend focusing risk management on strengthening data security, incident response, insider threat detection, vendor oversight, and compliance auditing.
-
-# High Impact Risk Overview
-
-Detailed analysis of the most significant risks identified during the risk assessment.
-
-![A table of the most significant risks](./risk-register.png)
-
 # Recommendations
-
-> Suggested actions or strategies to mitigate or manage identified risks.
 
 ## Data Privacy and Compliance
 
@@ -178,7 +130,6 @@ Detailed analysis of the most significant risks identified during the risk asses
   - Use separate cloud environments.
 - Authenticate connections between VISION and client systems.
 - No caching of client data in VISION systems unless absolutely necessary.
-- Use microservices and API gateways to limit access to backend systems.
 
 ## Operations Security
 
@@ -196,14 +147,16 @@ Detailed analysis of the most significant risks identified during the risk asses
 
 ## Secure Communications
 
-- Encrypt all data transfers externally. Don't send sensitive data in cleartext.
+- Encrypt all data transfers externally.
 - Authenticate recipients before sending data.
-- Carefully manage credentials and API keys. Rotate periodically.
+- Carefully manage credentials and API keys.
+  - Rotate periodically.
 - Notify patients/doctors if incorrect results are sent out.
 
 ## Endpoints and Accounts
 
 - Enforce MFA for all user and admin accounts.
+  - Explore SSO and Passkey authentication.
 - Use least privilege model for user roles and access.
 - Automatically lock accounts after periods of inactivity.
 - Patch and secure all client endpoints and apps.
@@ -221,4 +174,27 @@ Detailed analysis of the most significant risks identified during the risk asses
 
 # Conclusion
 
-> A wrap of the findings and overall implications for the organization.
+This cybersecurity risk assessment provides a comprehensive overview of
+VISION's security posture, identifying key assets, data flows, risks, and
+recommendations to strengthen protections.
+
+The most critical assets are patient data, intellectual property, and systems
+supporting core operations. Strategic risks center around theft of IP and
+damage to reputation. Major financial and operational risks stem from cyber
+attacks, data breaches, and non-compliance.
+
+Key recommendations include:
+
+- Strengthening data privacy protections and compliance with healthcare regulations
+- Isolating client data environments from VISION systems
+- Hardening cloud infrastructure and continuously monitoring for threats
+- Securing AI model training pipelines and outputs
+- Encrypting data transfers and authenticating recipients
+- Enforcing MFA and least privilege access controls
+- Physical security for facilities and proper disposal of old equipment
+- Business continuity through redundancy, backups, and disaster recovery testing
+
+By implementing these security measures, VISION can effectively manage its
+cyber risk exposure, safeguard critical assets, and ensure the confidentiality,
+integrity, and availability of systems and data. Ongoing security awareness and
+testing will be vital to keep pace with an evolving threat landscape.

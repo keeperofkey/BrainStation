@@ -39,7 +39,7 @@ the identified threats.
 
 This document outlines potential threats and mitigations for the computer vision system being developed by VISION for the healthcare client using the STRIDE methodology.
 
-![A Flow graph threat model](../../imgs/threatdragon.png)
+![A Flow graph STRIDE threat model](../../imgs/threatdragon.png)
 
 ## Spoofing Threats
 
@@ -121,10 +121,51 @@ This document outlines potential threats and mitigations for the computer vision
 
   - Mitigation: Implement least privilege permissions.
 
-This covers some high level threats and mitigations to consider. Further analysis should be performed once system architecture and components are finalized. Threat modeling is an iterative process that should be repeated as the system evolves.
+This covers some high level threats and mitigations to consider. Further
+analysis should be performed once system architecture and components are
+finalized. Threat modeling is an iterative process that should be repeated as
+the system evolves.
 
-# Compensating Controls: Identification of controls that can mitigate the identified threats.
+# Recommendations
 
-# Recommendations: Suggestions for improving security based on the threat modeling outcomes.
+Based on the threats identified through the STRIDE analysis, we recommend the following security improvements:
 
-# Conclusion: Final assessment and overall significance of the threat modeling for the organization.
+**Authentication and Access Controls**
+
+- Implement multi-factor authentication for all user and system accounts to prevent spoofing.
+- Enforce principle of least privilege through role-based access controls.
+- Rotate credentials regularly to limit impact of compromises.
+
+**Network Security**
+
+- Encrypt all network traffic with TLS to prevent data exposure.
+- Authenticate all connections internally to prevent spoofing.
+- Implement firewall rules and network segmentation to limit access.
+
+**Data Security**
+
+- Encrypt data in transit and at rest to prevent exposure.
+- Use immutable and append-only data stores for sensitive data like models and training data.
+- Implement robust logging and monitoring to detect tampering.
+
+**System Hardening**
+
+- Harden systems by removing unnecessary services, closing open ports, and keeping software patched.
+- Implement intrusion detection and prevention systems to detect attacks.
+- Perform regular vulnerability assessments and penetration testing.
+
+**Incident Response**
+
+- Develop an incident response plan for security events.
+- Send logs to a centralized SIEM for analysis and alerts.
+- Have processes to isolate and recover from compromise.
+
+# Conclusion
+
+The threat modeling analysis identified areas where additional security
+controls should be implemented to reduce risk, particularly around access
+management, network security, and data protection. Implementing the recommended
+mitigation strategies will improve the security posture against potential
+attacks. However, threat modeling is an ongoing process. As the system
+architecture and design evolves, additional analysis should be performed to
+identify new threats and reevaluate risks.

@@ -16,18 +16,113 @@
     }
 </style>
 
-Define an incident response plan overview in the event of a breach within your chosen processes where data might be vulnerable or exposed. Use the NIST framework to help map out this plan: preparation and prevention, detection and analysis, containment, eradication, and recovery. Be sure to include post-incident activity.
+# Introduction
 
-Deliverable: Develop an Incident Response Plan
+## Purpose
 
-# Title Page: Report title, student’s name, and date.
+This document outlines the procedures to follow in the event of a ransomware attack or data leak incident. The goal is to contain the incident, minimize damage, restore systems and data, communicate effectively, and document the incident.
 
-# Introduction: An introduction of the prepared incident response plan
+## Scope
 
-# Incident Response Plan Goals: The objectives and goals of the incident response plan
+This plan applies to all systems, networks, data, and personnel. It covers incidents resulting from malware, unauthorized access, insider threats, and accidental data exposure.
 
-# Incident Response Procedures: Detailed procedures covering identification, communication plan & escalation procedures, containment strategies, eradication, recovery, and post-incident review
+## Goals
 
-# Security tooling: Overview of tools and technologies that support the incident response plan.
+- Detect incidents early and contain them quickly
+- Minimize loss or theft of data or disruption of services
+- Recover damaged systems and data to restore normal operations
+- Learn from incidents and improve defenses and response capabilities
 
-# Conclusion: Overall discussion on the importance of incident response planning and its role to help protect business functions. Summarize the key takeaways from the incident response plan.
+## Incident Response Team
+
+- CIO
+- CISO
+- IT Manager
+- Security Engineer
+- Legal Counsel
+
+## Detection and Analysis
+
+- Monitor antivirus, firewall, and intrusion detection logs for signs of malware or unauthorized access
+- Watch for abnormal activity like encryption of files, access denied errors, or unusual outbound network traffic
+- Interview personnel who spotted suspicious behavior and review activity on systems they used
+- Determine scope and root cause of incident
+
+## Communication Plan
+
+1. Contact CIO and CISO immediately via call/text
+1. CISO will alert incident response team members
+1. CISO will provide instructions for containment and mitigation
+1. IT Manager will communicate status to affected departments
+
+## Containment
+
+- Isolate infected systems by disconnecting from network
+- Block suspicious IP addresses at firewalls and other security devices
+- Disable user accounts that may have been compromised
+- Prevent encryption of additional files if ransomware
+
+## Eradication and Recovery
+
+- Wipe and reimage infected systems using trusted media
+- Restore data from backups if needed
+- Change passwords and credentials that may have been compromised
+- Scan restored systems and data to ensure threat is eliminated
+
+## Post-Incident Activity
+
+- Document details of incident for future reference
+- Review circumstances that led to incident and see where security controls failed
+- Implement additional monitoring or controls to prevent re-occurrence
+- Provide updated training to personnel on threats and response procedures
+
+# Security tooling
+
+The following security tools and technologies are utilized to support incident detection, response, and recovery:
+
+## Network Monitoring
+
+- Firewalls - Detect anomalous traffic patterns and block malicious IP addresses. Palo Alto Networks firewalls are deployed at network perimeters.
+- IDS/IPS - Malicious traffic patterns and known attack signatures are detected by intrusion detection and prevention systems. Snort IDS sensors and Suricata IPS are deployed on critical network segments.
+- SIEM - Security information and event management aggregates and correlates logs from security devices. Splunk is used to analyze trends and pinpoint incidents.
+
+## Host Monitoring
+
+- Endpoint Detection & Response - Agents monitor endpoints for suspicious activities, policy violations, and security events. Carbon Black EDR is installed on all endpoints.
+- Antivirus - Malware execution is blocked and suspicious files are analyzed. Symantec Endpoint Protection provides antivirus capabilities.
+
+## Access Controls
+
+- Proxy Servers - Control and inspect web traffic. Blue Coat proxies are in place to filter web content and block malicious sites.
+- Remote Access VPN - Secure VPN concentrators enforce MFA and access controls for remote users. Cisco AnyConnect is utilized for VPN access.
+
+## Incident Response
+
+- Ticketing system - ServiceNow tickets are used to track incident response activities and document actions taken.
+- Threat intelligence feeds - STIX/TAXII feeds from DHS and other sources feed into security tools to block known bad actors.
+- Forensics tools - EnCase Forensic is used to analyze infected systems and capture evidence.
+
+## Backups
+
+- Immutable backups - Backups are maintained for quick recovery of compromised data and systems. Rubrik provides immutable backup storage.
+- Offline backups - Critical system backups are kept offline and physically secured for recovery from ransomware.
+
+# Conclusion
+
+An incident response plan is critical for protecting an organization's data, systems, and business functions. This incident response plan outlines procedures for quickly detecting, containing, eradicating, and recovering from security incidents like malware, data breaches, and ransomware attacks.
+
+Key takeaways include:
+
+- Having defined roles and responsibilities for the incident response team ensures accountability and coordination.
+
+- Implementing monitoring tools and technologies provides visibility into threats and enables early incident detection.
+
+- Containing incidents quickly is essential to minimize damage and loss of data. Strategies like isolating infected systems must be predefined.
+
+- Restoring compromised systems from trusted backups and scanning them before reconnecting to the network allows recovery without reinfection.
+
+- Documenting details during and after an incident aids in improving defenses and response plans.
+
+- Conducting post-incident reviews and implementing learnings allows the organization to enhance detections, response capabilities, and overall resilience.
+
+With the procedures and technologies outlined in this plan, the organization can rapidly respond to and recover from incidents while keeping business functions available. The plan is a living document and will be updated as the threat landscape evolves.

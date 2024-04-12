@@ -50,9 +50,46 @@ restoring critical operations needed for survival and competitiveness. This
 capability is increasingly important in today's complex and turbulent business
 environment.
 
-# Risk Assessment and Business Impact Analysis: Detail the results of the risk assessment and business impact analysis, highlighting potential disruptions.
+# Risk Assessment and Business Impact Analysis
 
-# Business Continuity Strategy: Describe the overarching strategy to maintain critical operations during disruptions.
+VISION Health's core assets include sensitive patient data, intellectual property, financial data, and physical infrastructure. A disruption to any of these assets could significantly impact operations and finances.
+
+Key external dependencies are relationships with healthcare clients and vendors. Issues with client security or vendor negligence could propagate risk back to VISION.
+
+Top risks requiring mitigation are around data privacy, security architecture, operations, communications, and business continuity.
+
+## Key Assets
+
+- Patient data
+  - Medical records, imaging, PII
+  - Highly sensitive information
+- Intellectual property
+  - Algorithms, models, code
+  - Competitive advantage
+- Physical infrastructure
+  - Servers, computers, medical devices
+- Financial data
+  - Billing, payments, accounting
+
+## Top Business Disruptions
+
+- Data breach
+  - Leak of patient data
+  - Huge legal, financial, and reputational impact
+- Service outage
+  - DDoS, ransomware, or insider attack
+  - Disrupts operations and revenue
+- Intellectual property theft
+  - Competitors steal IP
+  - Loss of competitive advantage
+- Non-compliance fines
+  - Violations of regulations
+  - Large financial impact
+- Vendor negligence
+  - Vendor actions lead to breach
+  - Damages client relationships
+
+# Business Continuity Strategy
 
 The overarching strategy to maintain critical operations during disruptions is
 to:
@@ -90,11 +127,11 @@ The goal is to implement cost-effective measures that reduce vulnerability to
 disruptions and allow rapid restoration of critical operations as needed. This
 provides organizational resilience when faced with potential threats.
 
-# Backup and Recovery Plan: Outline plans for data backup and recovery in case of data loss or system failure.
+# Backup and Recovery Plan
 
 ## Backup Strategy
 
-- Database backups will be performed daily at 11pm.
+- Database backups will be performed daily.
   Backups will be retained for 2 weeks.
 - Application code will be stored in a version control system (Git) so all code
   revisions will be available. The Git repository will be backed up weekly.

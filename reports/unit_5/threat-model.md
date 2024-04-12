@@ -145,7 +145,7 @@ Based on the threats identified through the STRIDE analysis, we recommend the fo
 **Data Security**
 
 - Encrypt data in transit and at rest to prevent exposure.
-- Use immutable and append-only data stores for sensitive data like models and training data.
+- Use immutable data stores for sensitive data like models and training data.
 - Implement robust logging and monitoring to detect tampering.
 
 **System Hardening**

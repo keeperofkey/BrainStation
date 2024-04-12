@@ -166,29 +166,20 @@ To mitigate third-party risks, we recommend the following strategies:
 
 ## Conclusion
 
-This report provides a comprehensive assessment of the key risks associated
-with third-party vendors and service providers at VISION Corporation. Proper
-oversight and management of third-party relationships is crucial for reducing
-the organization's exposure to strategic, financial, operational, compliance,
-data privacy, supply chain, and business continuity risks.
+This report assesses key third-party vendor risks at VISION Corporation. A
+robust vendor risk program is crucial to reduce exposure across strategic,
+financial, operational, compliance, data privacy, supply chain, and business
+continuity risks.
 
-By implementing a robust vendor risk management program, VISION can
-continuously monitor and evaluate risks posed by vendors. Ongoing due
-diligence, audits, contract terms, and security controls are vital for
-mitigating third-party risks.
+Ongoing due diligence, audits, contracts, and security controls mitigate vendor
+risks. As VISION adopts cloud services, it must fulfill security, access, and
+compliance obligations in the shared responsibility model.
 
-As VISION adopts cloud computing and other third-party services, it is
-essential to have a clear understanding of the shared responsibility model.
-VISION must fulfill its obligations around data security, access controls, and
-compliance in the cloud.
+With proper governance and mitigation strategies, VISION can securely leverage
+third-parties and enable innovation. But third-party relationships require
+trust and risk transparency between parties.
 
-With appropriate governance and risk mitigation strategies, VISION can securely
-leverage third-parties to create business value and enable innovation. However,
-third-party relationships must be built on a foundation of trust and risk
-transparency between the parties involved.
-
-This report provides VISION with actionable insights into current third-party
-risks and how to reduce exposure going forward. But third-party risk management
-must be an ongoing process, adapting to new partnerships and evolving business
-needs. Regular communication, contract review, and risk assessments will
-strengthen VISION's vendor relationships while protecting the organization.
+This report provides actionable insights into current risks and reducing future
+exposure. However, third-party risk management must adapt to new partnerships
+and evolving needs through regular communication, contract reviews, and
+assessments to strengthen relationships while protecting VISION.

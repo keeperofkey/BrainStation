@@ -82,29 +82,29 @@ The following security tools and technologies are utilized to support incident d
 
 ## Network Monitoring
 
-- Firewalls - Detect anomalous traffic patterns and block malicious IP addresses. Palo Alto Networks firewalls are deployed at network perimeters.
-- IDS/IPS - Malicious traffic patterns and known attack signatures are detected by intrusion detection and prevention systems. Snort IDS sensors and Suricata IPS are deployed on critical network segments.
-- SIEM - Security information and event management aggregates and correlates logs from security devices. Splunk is used to analyze trends and pinpoint incidents.
+- Firewalls - Detect anomalous traffic patterns and block malicious IP addresses.
+- IDS/IPS - Malicious traffic patterns and known attack signatures are detected by intrusion detection and prevention systems.
+- SIEM - Security information and event management aggregates and correlates logs from security devices.
 
 ## Host Monitoring
 
-- Endpoint Detection & Response - Agents monitor endpoints for suspicious activities, policy violations, and security events. Carbon Black EDR is installed on all endpoints.
-- Antivirus - Malware execution is blocked and suspicious files are analyzed. Symantec Endpoint Protection provides antivirus capabilities.
+- Endpoint Detection & Response - Agents monitor endpoints for suspicious activities, policy violations, and security events.
+- Antivirus - Malware execution is blocked and suspicious files are analyzed.
 
 ## Access Controls
 
-- Proxy Servers - Control and inspect web traffic. Blue Coat proxies are in place to filter web content and block malicious sites.
-- Remote Access VPN - Secure VPN concentrators enforce MFA and access controls for remote users. Cisco AnyConnect is utilized for VPN access.
+- Proxy Servers - Control and inspect web traffic.
+- Remote Access VPN - Secure VPN concentrators enforce MFA and access controls for remote users.
 
 ## Incident Response
 
-- Ticketing system - ServiceNow tickets are used to track incident response activities and document actions taken.
-- Threat intelligence feeds - STIX/TAXII feeds from DHS and other sources feed into security tools to block known bad actors.
-- Forensics tools - EnCase Forensic is used to analyze infected systems and capture evidence.
+- Ticketing system - to track incident response activities and document actions taken.
+- Threat intelligence feeds - sources feed into security tools to block known bad actors.
+- Forensics tools - used to analyze infected systems and capture evidence.
 
 ## Backups
 
-- Immutable backups - Backups are maintained for quick recovery of compromised data and systems. Rubrik provides immutable backup storage.
+- Immutable backups - Backups are maintained for quick recovery of compromised data and systems.
 - Offline backups - Critical system backups are kept offline and physically secured for recovery from ransomware.
 
 # Conclusion

@@ -20,19 +20,6 @@
 
 Next identify the people, and technology supporting the processes identified. It is important to recognize these elements to understand the ecosystem where cybersecurity measures will be applied.
 
-## People
-
-- 200 Bay Area Employees
-- Numerous vendors and contractors
-  - maintenance
-  - infrastructure
-- 24h cybersecurity monitoring team in India
-
-## Technology
-
-- maintain highly efficient infrastructure
-- remain secure but accessible
-
 # Executive Summary
 
 - Our most critical assets are patient data, intellectual property, and systems that support core operations.
@@ -43,6 +30,35 @@ Next identify the people, and technology supporting the processes identified. It
 - Third party risks involve breaches via clients, vendors, and contractors.
 - Core data risks relate to leaks of PII and medical data, inaccurate AI output.
 - Recommend focusing risk management on strengthening data security, incident response, insider threat detection, vendor oversight, and compliance auditing.
+
+## People
+
+**VISION**
+
+- 200 Bay Area Employees
+
+- Numerous vendors and contractors
+
+  - maintenance
+  - infrastructure
+
+- 24h cybersecurity monitoring team in India
+
+**Client**
+
+- 60,000 employees globally
+
+- Technicians, nurses, doctors, admin staff, etc.
+
+- Dedicated lab facilities, but also clinics within
+  partner organizations such as pharmacy and grocery chains.
+
+## Technology
+
+- VISION must maintain highly efficient infrastructure that remains secure but accessible
+- VISION Cloud infrastructure for model library and AI training interface
+- The client has their own dedicated cloud environment
+- The client provides a patient facing web app
 
 # Data Flow
 
@@ -75,7 +91,7 @@ Detailed analysis of the most significant risks identified during the risk asses
 
 ## Strategic Risks
 
-- Competitors stealing IP
+- Competitors stealing IPBriefly elaborate on what you want to discuss.
 - Legal issues around data sourcing/usage (Copyright)
 - Failure to innovate and keep pace with competition
 - Damage to reputation from security breach
@@ -97,7 +113,7 @@ Detailed analysis of the most significant risks identified during the risk asses
 
 - Failing to meet regulatory requirements around PII and medical data
 - Violating laws around AI/algorithm usage
-- Non-compliance with medical device standards
+- Non-compliance with medical device standardsBriefly elaborate on what you want to discuss.
 
 ## Third Party Risks
 
